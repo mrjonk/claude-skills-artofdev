@@ -8,6 +8,7 @@ Skills publiés :
 |---|---|
 | [`repo-builder`](skills/repo-builder/) | Créer un repo GitHub propre, structuré, documenté, en une commande |
 | [`production-auditor`](skills/production-auditor/) | Auditer un projet avant mise en production : score 7-axes, plan de correction, corrections sûres |
+| [`premium-webdesigner`](skills/premium-webdesigner/) | Empêcher les designs IA basiques : méthode 6-phases (brief → 21st.dev/shadcn → composants → direction artistique → images → exécution alignée stack) |
 
 Created by **João de Almeida** — Art of Dev
 https://artofdev.space
@@ -116,6 +117,51 @@ Voir [`docs/production-auditor-how-to-use.md`](docs/production-auditor-how-to-us
 
 ---
 
+## Le skill `premium-webdesigner`
+
+### Le problème
+
+Quand on demande à une IA *"fais-moi un design moderne"*, on récupère systématiquement :
+
+- une homepage avec un gros titre centré et 3 cards génériques en dessous ;
+- un dégradé violet posé "parce que ça fait moderne" ;
+- une stock photo d'équipe en costume autour d'une table en verre ;
+- un footer pauvre avec juste un copyright ;
+- des icônes décoratives sans signification (ampoule "idée", fusée "lancement", poignée de main "deal").
+
+Si on **enlève le logo** d'un tel design, on peut le coller sur n'importe quel site. C'est le test ultime du **design IA générique**.
+
+### La solution
+
+Le skill **`premium-webdesigner`** interdit à Claude de coder directement. Il force une **méthode en 6 phases** :
+
+1. **Compréhension** — type de projet, cible, action principale, émotion à transmettre, stack ;
+2. **Recherche d'inspiration** — 21st.dev (featured + popular + newest), shadcn/ui, Lucide, Motion, Unsplash, Pixabay ;
+3. **Sélection de composants** — chaque composant avec source, URL, raison du choix, adaptations, dépendances, impact responsive et perf ;
+4. **Direction artistique** — palette, typographie, spacing, radius, shadows, animations ;
+5. **Sourcing d'images** — Pixabay/Unsplash en priorité, mots-clés précis par secteur, alt text + licence + crédit documentés ;
+6. **Exécution** — alignée sur la stack existante (pas de React imposé sur PHP, pas de Next sur WordPress, pas de Tailwind sur HTML pur).
+
+### Ce que le skill produit
+
+- 4 fichiers de planification dans `docs/` : `design-brief`, `moodboard-report`, `component-selection`, `image-selection`, `design-system` ;
+- l'**implémentation** elle-même (commits séparés par phase) ;
+- un **rapport de redesign** avec score `ui-quality-checklist` (sur 100, 6 axes : visuel, UX, responsive, accessibilité, cohérence, premium feel).
+
+### Ce que le skill ne fait jamais sans accord explicite
+
+- coder directement sans avoir produit un brief ;
+- copier un composant 21st.dev sans le citer ;
+- imposer React/Tailwind/Next sur un projet PHP ou WordPress ;
+- supprimer ou modifier des données dynamiques pour faire joli ;
+- casser un flow critique (auth, paiement, formulaire) ;
+- utiliser des images sans respecter la licence ;
+- pousser vers GitHub.
+
+Voir [`docs/premium-webdesigner-how-to-use.md`](docs/premium-webdesigner-how-to-use.md), [`docs/premium-webdesigner-examples.md`](docs/premium-webdesigner-examples.md), et [`docs/article-section-premium-webdesigner.md`](docs/article-section-premium-webdesigner.md).
+
+---
+
 ## Structure du repo
 
 ```txt
@@ -142,14 +188,20 @@ claude-skills-artofdev/
 │   │   ├── references/
 │   │   ├── templates/
 │   │   └── scripts/
-│   └── production-auditor/
+│   ├── production-auditor/
+│   │   ├── SKILL.md
+│   │   ├── README.md
+│   │   ├── references/                       # 9 checklists
+│   │   ├── templates/                        # 5 templates
+│   │   └── scripts/                          # 4 scripts
+│   └── premium-webdesigner/
 │       ├── SKILL.md
 │       ├── README.md
-│       ├── references/                       # 9 checklists (audit, tech, UX, SEO, sec, admin, billing, deploy, report-format)
-│       ├── templates/                        # 5 templates (audit-report, bug-list, correction-plan, score, release-checklist)
-│       └── scripts/                          # 4 scripts (scan-common-issues, scan-secrets, scan-dead-links, generate-audit-report)
-├── examples/                                # 5 exemples repo-builder + 5 exemples production-auditor
-└── reports/                                 # rapports d'audit générés
+│       ├── references/                       # 10 fichiers (design-methodology, inspiration-sources, 21st-dev-workflow, image-sourcing, design-system-rules, ux/responsive/a11y/anti-basic checklists)
+│       ├── templates/                        # 7 templates (design-brief, moodboard, component-selection, image-selection, design-system, redesign-report, ui-quality-checklist)
+│       └── scripts/                          # 4 scripts (create-design-brief, create-redesign-report, scan-ui-basic-patterns, prepare-image-assets-folder)
+├── examples/                                # 16 exemples (5 repo-builder + 5 production-auditor + 6 premium-webdesigner)
+└── reports/                                 # rapports d'audit / redesign générés
 ```
 
 ---
@@ -213,9 +265,17 @@ Dans n'importe quelle conversation Claude Code, le bon skill s'active automatiqu
 - *"Audit sécurité only, lecture seule."*
 - *"Audit avant vidéo YouTube — masque les chemins serveur."*
 
+### `premium-webdesigner` (refonte design)
+
+- *"Refonte premium de cette homepage SaaS."*
+- *"Ce site fait trop template WordPress, revois l'expérience visuelle complète."*
+- *"Améliore ce dashboard admin : cards, badges, stats, états vides."*
+- *"Brief design seul, sans coder. Moodboard + palette + composants."*
+- *"Refonte avant/après avec score chiffré."*
+
 Claude applique alors les règles du `SKILL.md` correspondant et rend un rapport final.
 
-Voir [`examples/`](examples/) pour 10 cas concrets (5 par skill).
+Voir [`examples/`](examples/) pour 16 cas concrets (5 + 5 + 6).
 
 ---
 
@@ -242,10 +302,11 @@ Voir [`docs/security-rules.md`](docs/security-rules.md) pour le détail.
 ## Roadmap
 
 - **v0.1** — `repo-builder` : structure de base, 5 stacks supportées, install/uninstall (livré).
-- **v0.2** — `production-auditor` : audit 10-phases, scoring 7-axes, 9 checklists, 5 templates, 4 scripts (livré).
-- **v0.3** — `repo-builder` enrichi : détection automatique de stack depuis langage naturel.
+- **v0.2** — `production-auditor` : audit 10-phases, scoring 7-axes (livré).
+- **v0.3** — `premium-webdesigner` : design 6-phases, 21st.dev/shadcn workflow, anti-basic rules, scoring UI quality (livré).
 - **v0.4** — `mini-cms-builder` : générateur de mini CMS sectoriels PHP/SQLite.
 - **v0.5** — `video-prep` : préparation d'un repo en mode screen-recording propre.
+- **v0.6** — `zip-exporter` : empaquetage en ZIP livrable client.
 - **v1.0** — collection stable, publiée sur Art of Dev avec article + vidéo YouTube.
 
 Voir [`docs/roadmap.md`](docs/roadmap.md).

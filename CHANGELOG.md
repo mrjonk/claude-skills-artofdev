@@ -9,11 +9,30 @@ Versionnage [SemVer](https://semver.org/lang/fr/).
 
 ## [Unreleased]
 
+### Added
+- **Skill `premium-webdesigner`** (troisième skill publié) :
+  - `SKILL.md` complet (frontmatter + 11 sections : rôle, méthode 6-phases, anti-basic rules, adaptation stack, checklist) ;
+  - 10 fichiers `references/` : `design-methodology`, `inspiration-sources`, `component-selection-guide`, `21st-dev-workflow`, `image-sourcing-guide`, `design-system-rules`, `ux-ui-checklist`, `responsive-checklist`, `accessibility-checklist`, `anti-basic-design-rules` ;
+  - 7 templates : `design-brief`, `moodboard-report`, `component-selection`, `image-selection`, `design-system`, `redesign-report`, `ui-quality-checklist` ;
+  - 4 scripts non destructifs : `create-design-brief.sh`, `create-redesign-report.sh`, `scan-ui-basic-patterns.sh` (lorem/TODO/gradients/polices massives/alt vide), `prepare-image-assets-folder.sh` (structure assets + placeholder SVG + image-credits.md) ;
+  - couvre 14+ types de projets : site vitrine, SaaS, mini CMS, dashboard admin, WordPress, plugin WP, app PHP, Node/Next, Python/FastAPI, ASP.NET WebForms, association, label, artiste, projet vidéo YouTube ;
+  - workflow 21st.dev intégré (featured / popular / newest, grille de décision, anti-mosaïque) ;
+  - règles d'images Pixabay/Unsplash (mots-clés par secteur, anti-clichés, licences, crédits).
+- 3 docs publiques : `premium-webdesigner-how-to-use.md`, `premium-webdesigner-examples.md` (10 prompts prêts), `article-section-premium-webdesigner.md`.
+- 6 exemples : `example-modern-saas-homepage`, `example-premium-dashboard`, `example-artistic-association-site`, `example-corporate-agency-site`, `example-youtube-demo-interface`, `example-before-after-redesign`.
+- `reports/premium-webdesigner-self-audit.md` : auto-application orientée présentation/documentation du repo.
+
+### Changed
+- `README.md` : nouvelle section pour `premium-webdesigner`, structure du repo mise à jour, roadmap réordonnée.
+- `install.sh` : aucune modification nécessaire — le mode multi-skill détecte automatiquement le nouveau skill.
+- `uninstall.sh` : aucune modification nécessaire — argument `<skill-name>` fonctionne pour `premium-webdesigner`.
+
 ### À venir
-- Détection automatique de la stack depuis une description en langage naturel.
-- Affinement des regex de scan (exclure templates, CHANGELOG, scripts d'audit eux-mêmes).
 - Skill `mini-cms-builder`.
 - Skill `video-prep`.
+- Skill `zip-exporter`.
+- Détection automatique de la stack depuis une description en langage naturel.
+- Affinement des regex de scan.
 
 ---
 
