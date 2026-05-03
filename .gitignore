@@ -1,0 +1,80 @@
+# --- Environnement / secrets ---
+.env
+.env.*
+!.env.example
+*.env.local
+secrets.*
+*.secret
+*.token
+*.key
+*.pem
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+*.ppk
+
+# --- Dépendances ---
+node_modules/
+vendor/
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Builds / dist ---
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+.turbo/
+
+# --- Logs / temp ---
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+*.swp
+*~
+
+# --- Bases de données / dumps ---
+*.sqlite
+*.sqlite3
+*.db
+*.sql
+*.dump
+backups/
+*.bak
+
+# --- Archives privées ---
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+exports/
+
+# --- IDE ---
+.vscode/
+.idea/
+*.iml
+.history/
+
+# --- Couverture / tests ---
+coverage/
+.nyc_output/
+.pytest_cache/
+htmlcov/
+
+# --- Sauvegardes du skill (créées par install.sh / uninstall.sh) ---
+.skill-backups/
