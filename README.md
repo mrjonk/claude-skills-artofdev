@@ -9,6 +9,7 @@ Skills publiés :
 | [`repo-builder`](skills/repo-builder/) | Créer un repo GitHub propre, structuré, documenté, en une commande |
 | [`production-auditor`](skills/production-auditor/) | Auditer un projet avant mise en production : score 7-axes, plan de correction, corrections sûres |
 | [`premium-webdesigner`](skills/premium-webdesigner/) | Empêcher les designs IA basiques : méthode 6-phases (brief → 21st.dev/shadcn → composants → direction artistique → images → exécution alignée stack) |
+| [`seo-content-engine`](skills/seo-content-engine/) | Empêcher les articles IA génériques : méthode éditoriale 13-étapes, anti-bullshit, scoring qualité 0-100, public-ready |
 
 Created by **João de Almeida** — Art of Dev
 https://artofdev.space
@@ -162,6 +163,81 @@ Voir [`docs/premium-webdesigner-how-to-use.md`](docs/premium-webdesigner-how-to-
 
 ---
 
+## Le skill `seo-content-engine`
+
+> **Note :** ce skill est **public-ready**. Il ne contient aucune référence privée et est réutilisable tel quel par développeurs indépendants, agences web, créateurs de contenu, équipes marketing, fondateurs de SaaS, blogueurs, éditeurs de sites, rédacteurs SEO et équipes produit.
+
+### Le problème
+
+Les articles IA génériques ont gagné. Quand on demande *"écris-moi un article SEO"*, on récupère :
+
+- une intro qui commence par *"Dans le monde d'aujourd'hui..."* ;
+- des paragraphes transposables à n'importe quel sujet ;
+- une statistique non sourcée (*"selon une étude récente, 80 %..."*) ;
+- une FAQ artificielle où chaque question est une variante de la suivante ;
+- une conclusion qui résume sans rien ajouter ;
+- un CTA générique.
+
+Le SEO n'est plus le problème. La **qualité éditoriale** l'est.
+
+### La solution
+
+Le skill **`seo-content-engine`** force une méthode éditoriale **en 13 étapes** :
+
+1. comprendre le sujet ;
+2. identifier le public cible ;
+3. définir l'intention de recherche ;
+4. préparer une structure claire ;
+5. écrire un contenu utile ;
+6. éviter le contenu générique (test du paragraphe transposable) ;
+7. ajouter des exemples concrets ;
+8. préparer les metadata SEO ;
+9. proposer des liens internes ;
+10. prévoir des images ou prompts d'images ;
+11. ajouter une FAQ utile (pas inventée) ;
+12. citer les sources (jamais en inventer) ;
+13. faire une passe finale anti-bullshit.
+
+À la fin, **score qualité éditoriale sur 100** + verdict.
+
+### Ce que le skill produit
+
+- frontmatter SEO complet (title, meta, slug, mots-clés, intention, public, schema_type) ;
+- structure H1/H2/H3 logique ;
+- exemples concrets dans chaque section ;
+- FAQ utile (3–8 questions réelles) ;
+- 3–6 suggestions de liens internes (avec ancres et raisons) ;
+- plan d'images (hero + secondaires) ;
+- liste de sources catégorisées ;
+- CTA naturel ;
+- score qualité éditoriale (0–100) avec verdict.
+
+Tout est **prêt à coller dans un CMS** (WordPress, Ghost, Hashnode, headless) sans retravail.
+
+### Règle anti-bullshit centrale
+
+> **Test du paragraphe transposable** : *"Si un paragraphe peut être copié dans un article sur un autre sujet sans perdre son sens, il doit être supprimé ou réécrit."*
+
+### Ce que le skill ne fait jamais
+
+- inventer une source, une citation, un chiffre ;
+- prétendre avoir consulté une page non vue ;
+- produire des paragraphes transposables ;
+- ajouter une FAQ inventée ;
+- pousser un CTA agressif ou décorrélé ;
+- modifier `.env` ou des fichiers de credentials ;
+- pousser vers GitHub sans accord.
+
+### Installation modulaire
+
+```bash
+bash install.sh seo-content-engine
+```
+
+Voir [`docs/seo-content-engine-how-to-use.md`](docs/seo-content-engine-how-to-use.md), [`docs/seo-content-engine-examples.md`](docs/seo-content-engine-examples.md), et [`docs/article-section-seo-content-engine.md`](docs/article-section-seo-content-engine.md).
+
+---
+
 ## Structure du repo
 
 ```txt
@@ -194,14 +270,20 @@ claude-skills-artofdev/
 │   │   ├── references/                       # 9 checklists
 │   │   ├── templates/                        # 5 templates
 │   │   └── scripts/                          # 4 scripts
-│   └── premium-webdesigner/
+│   ├── premium-webdesigner/
+│   │   ├── SKILL.md
+│   │   ├── README.md
+│   │   ├── references/                       # 10 fichiers
+│   │   ├── templates/                        # 7 templates
+│   │   └── scripts/                          # 4 scripts
+│   └── seo-content-engine/                   # PUBLIC-READY, no private references
 │       ├── SKILL.md
 │       ├── README.md
-│       ├── references/                       # 10 fichiers (design-methodology, inspiration-sources, 21st-dev-workflow, image-sourcing, design-system-rules, ux/responsive/a11y/anti-basic checklists)
-│       ├── templates/                        # 7 templates (design-brief, moodboard, component-selection, image-selection, design-system, redesign-report, ui-quality-checklist)
-│       └── scripts/                          # 4 scripts (create-design-brief, create-redesign-report, scan-ui-basic-patterns, prepare-image-assets-folder)
-├── examples/                                # 16 exemples (5 repo-builder + 5 production-auditor + 6 premium-webdesigner)
-└── reports/                                 # rapports d'audit / redesign générés
+│       ├── references/                       # 10 fichiers (editorial-methodology, anti-bullshit, seo-checklist, article-structure, tone-of-voice, internal-linking, source-citation, image-planning, faq-writing, content-quality-score)
+│       ├── templates/                        # 10 templates (article-brief, seo-outline, article, tutorial, saas-blog-post, product-page, source-list, image-plan, faq, content-audit)
+│       └── scripts/                          # 5 scripts (create-article-brief, create-seo-outline, scan-generic-content, scan-repetitions, prepare-content-folder)
+├── examples/                                # 22 exemples (5 + 5 + 6 + 6)
+└── reports/                                 # rapports d'audit / redesign / éditoriaux générés
 ```
 
 ---
@@ -273,9 +355,17 @@ Dans n'importe quelle conversation Claude Code, le bon skill s'active automatiqu
 - *"Brief design seul, sans coder. Moodboard + palette + composants."*
 - *"Refonte avant/après avec score chiffré."*
 
+### `seo-content-engine` (rédaction SEO)
+
+- *"Écris un article SEO complet sur X."*
+- *"Rédige un tutoriel pour débutants sur Y."*
+- *"Audite cet article et liste les paragraphes transposables."*
+- *"Crée une page produit pour Z, sans superlatifs vides."*
+- *"Build a standalone FAQ for an API product."*
+
 Claude applique alors les règles du `SKILL.md` correspondant et rend un rapport final.
 
-Voir [`examples/`](examples/) pour 16 cas concrets (5 + 5 + 6).
+Voir [`examples/`](examples/) pour 22 cas concrets (5 + 5 + 6 + 6).
 
 ---
 
@@ -304,10 +394,11 @@ Voir [`docs/security-rules.md`](docs/security-rules.md) pour le détail.
 - **v0.1** — `repo-builder` : structure de base, 5 stacks supportées, install/uninstall (livré).
 - **v0.2** — `production-auditor` : audit 10-phases, scoring 7-axes (livré).
 - **v0.3** — `premium-webdesigner` : design 6-phases, 21st.dev/shadcn workflow, anti-basic rules, scoring UI quality (livré).
-- **v0.4** — `mini-cms-builder` : générateur de mini CMS sectoriels PHP/SQLite.
-- **v0.5** — `video-prep` : préparation d'un repo en mode screen-recording propre.
-- **v0.6** — `zip-exporter` : empaquetage en ZIP livrable client.
-- **v1.0** — collection stable, publiée sur Art of Dev avec article + vidéo YouTube.
+- **v0.4** — `seo-content-engine` : rédaction SEO 13-étapes, anti-bullshit, scoring qualité, public-ready (livré).
+- **v0.5** — `mini-cms-builder` : générateur de mini CMS sectoriels PHP/SQLite.
+- **v0.6** — `video-prep` : préparation d'un repo en mode screen-recording propre.
+- **v0.7** — `zip-exporter` : empaquetage en ZIP livrable client.
+- **v1.0** — collection stable, publiée avec article + vidéo de présentation.
 
 Voir [`docs/roadmap.md`](docs/roadmap.md).
 

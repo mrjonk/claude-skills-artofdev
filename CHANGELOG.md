@@ -9,11 +9,29 @@ Versionnage [SemVer](https://semver.org/lang/fr/).
 
 ## [Unreleased]
 
+### Added
+- **Skill `seo-content-engine`** (quatrième skill publié, **public-ready**) :
+  - `SKILL.md` complet (frontmatter + 17 sections : rôle, méthode 13-étapes, anti-bullshit rules, SEO rules, structure, tone routing, sources, images, liens internes, CTA, scoring, checklist) ;
+  - 10 fichiers `references/` : `editorial-methodology` (méthode 7-phases), `anti-bullshit-rules` (phrases creuses FR/EN, paragraphes transposables), `seo-checklist`, `article-structure-guide` (10 structures par type), `tone-of-voice-guide` (7 contextes), `internal-linking-guide`, `source-citation-guide`, `image-planning-guide`, `faq-writing-guide`, `content-quality-score` (12 critères pondérés sur 100) ;
+  - 10 templates : `article-brief`, `seo-outline`, `article`, `tutorial`, `saas-blog-post`, `product-page`, `source-list`, `image-plan`, `faq`, `content-audit` ;
+  - 5 scripts non destructifs : `create-article-brief.sh`, `create-seo-outline.sh`, `scan-generic-content.sh` (phrases creuses FR + EN + placeholders), `scan-repetitions.sh` (titres H2/H3 dupliqués + phrases répétées), `prepare-content-folder.sh` (structure content/) ;
+  - score qualité éditoriale 0–100 avec verdict (Inutilisable / Trop générique / Correct mais faible / Publiable avec corrections / Bon contenu SEO / Premium) ;
+  - règle centrale : **test du paragraphe transposable** ;
+  - **public-ready** : aucune référence à un site personnel, marque ou projet privé. Réutilisable par développeurs indé, agences, créateurs de contenu, équipes marketing, fondateurs de SaaS, blogueurs.
+- 3 docs publiques : `seo-content-engine-how-to-use.md`, `seo-content-engine-examples.md` (10 prompts prêts), `article-section-seo-content-engine.md`.
+- 6 exemples : `example-technical-article`, `example-saas-blog-article`, `example-product-page`, `example-simple-tutorial`, `example-content-audit`, `example-faq-section`.
+- `reports/seo-content-engine-self-audit.md` : auto-application orientée éditorial.
+
+### Changed
+- `README.md` : nouvelle section pour `seo-content-engine` (avec note "public-ready"), structure du repo mise à jour, roadmap réordonnée.
+- `install.sh` : aucune modification — multi-skill auto-détecte `seo-content-engine`.
+- `uninstall.sh` : aucune modification — `bash uninstall.sh seo-content-engine` fonctionne.
+
 ### À venir
 - Skill `mini-cms-builder`.
 - Skill `video-prep`.
 - Skill `zip-exporter`.
-- Bannière OG / logo Art of Dev dans le README racine.
+- Bannière OG / logo dans le README racine.
 - Captures d'écran de redesigns réels dans `examples/`.
 
 ---
