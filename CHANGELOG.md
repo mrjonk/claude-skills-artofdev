@@ -9,6 +9,20 @@ Versionnage [SemVer](https://semver.org/lang/fr/).
 
 ## [Unreleased]
 
+### À venir
+- Skill `mini-cms-builder`.
+- Skill `video-prep`.
+- Skill `zip-exporter`.
+- Skill `skill-orchestrator` (chaîner les skills selon le contexte).
+- Bannière OG / logo dans le README racine.
+- Captures d'écran de redesigns / audits réels dans `examples/`.
+- Affinement des regex de scan (whitelist élargie pour le repo méta).
+- Table des matières dans les SKILL.md longs (notamment site-ux-guardian, ~720 lignes).
+
+---
+
+## [0.5.0] — 2026-05-03
+
 ### Added
 - **Skill `site-ux-guardian`** (cinquième skill publié, **public-ready**) :
   - `SKILL.md` complet (frontmatter + 25 sections : rôle, philosophie 15 questions, méthode 11 phases, règles menus/footers/routes/doublons, discipline fichier, cohérence front/admin, multilingue, webdesign guidelines 14 axes, sécurité basique, 3 modes d'exécution, scoring cohérence + visuel sur 100, checklist) ;
@@ -27,14 +41,8 @@ Versionnage [SemVer](https://semver.org/lang/fr/).
 - `README.md` : nouvelle section pour `site-ux-guardian` (avec note "public-ready"), structure du repo mise à jour, roadmap réordonnée.
 - `install.sh` / `uninstall.sh` : aucune modification — multi-skill auto-détecte.
 
-### À venir
-- Skill `mini-cms-builder`.
-- Skill `video-prep`.
-- Skill `zip-exporter`.
-- Bannière OG / logo dans le README racine.
-- Captures d'écran de redesigns réels dans `examples/`.
-- Affinement des regex de scan (whitelist élargie pour le repo méta).
-- Table des matières dans les SKILL.md longs.
+### Fixed
+- `site-ux-guardian/scripts/scan-navigation-patterns.sh` + `scan-footer-patterns.sh` : initialisation explicite des arrays associatifs + garde sur array vide. Corrige `unbound variable` quand `set -euo pipefail` rencontre un dossier sans fichiers UI à scanner.
 
 ---
 
