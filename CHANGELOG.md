@@ -9,6 +9,16 @@ Versionnage [SemVer](https://semver.org/lang/fr/).
 
 ## [Unreleased]
 
+### À venir
+- Détection automatique de la stack depuis une description en langage naturel.
+- Affinement des regex de scan (exclure templates, CHANGELOG, scripts d'audit eux-mêmes).
+- Skill `mini-cms-builder`.
+- Skill `video-prep`.
+
+---
+
+## [0.2.0] — 2026-05-03
+
 ### Added
 - **Skill `production-auditor`** (deuxième skill publié) :
   - `SKILL.md` complet (frontmatter + 15 sections : rôle, méthode 10-phases, scoring 7-axes 0–100, checklist) ;
@@ -25,11 +35,6 @@ Versionnage [SemVer](https://semver.org/lang/fr/).
 - `install.sh` : passe en mode **multi-skill** (boucle sur `skills/*` pour installer chaque skill, sauvegarde individuelle).
 - `uninstall.sh` : accepte un nom de skill en argument (`bash uninstall.sh production-auditor`) ou `--all` pour tout désinstaller. Refuse de tout retirer sans confirmation explicite.
 - `README.md` : nouvelle section pour `production-auditor`, structure du repo mise à jour, roadmap réordonnée.
-
-### À venir
-- Détection automatique de la stack depuis une description en langage naturel.
-- Skill `mini-cms-builder`.
-- Skill `video-prep`.
 
 ---
 
