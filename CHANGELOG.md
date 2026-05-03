@@ -9,6 +9,19 @@ Versionnage [SemVer](https://semver.org/lang/fr/).
 
 ## [Unreleased]
 
+### À venir
+- Skill `mini-cms-builder`.
+- Skill `video-prep`.
+- Skill `zip-exporter`.
+- Bannière OG / logo dans le README racine.
+- Captures d'écran de redesigns réels dans `examples/`.
+- Affinement des regex de scan (whitelist élargie pour le repo méta).
+- Table des matières dans les SKILL.md longs.
+
+---
+
+## [0.4.0] — 2026-05-03
+
 ### Added
 - **Skill `seo-content-engine`** (quatrième skill publié, **public-ready**) :
   - `SKILL.md` complet (frontmatter + 17 sections : rôle, méthode 13-étapes, anti-bullshit rules, SEO rules, structure, tone routing, sources, images, liens internes, CTA, scoring, checklist) ;
@@ -27,12 +40,8 @@ Versionnage [SemVer](https://semver.org/lang/fr/).
 - `install.sh` : aucune modification — multi-skill auto-détecte `seo-content-engine`.
 - `uninstall.sh` : aucune modification — `bash uninstall.sh seo-content-engine` fonctionne.
 
-### À venir
-- Skill `mini-cms-builder`.
-- Skill `video-prep`.
-- Skill `zip-exporter`.
-- Bannière OG / logo dans le README racine.
-- Captures d'écran de redesigns réels dans `examples/`.
+### Fixed
+- `scan-generic-content.sh` : gestion correcte de l'exit code de `grep -c` (le résumé final ne plantait plus quand aucun match n'était trouvé).
 
 ---
 
