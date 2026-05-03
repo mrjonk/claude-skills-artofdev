@@ -268,9 +268,11 @@ Avant de conclure, vérifier que **toutes** ces conditions sont remplies :
 - [ ] `README.md` présent, complet, en français, sans phrase creuse ;
 - [ ] `.gitignore` présent et adapté à la stack ;
 - [ ] `CHANGELOG.md` présent ;
-- [ ] `ROADMAP.md` présent ;
-- [ ] `docs/architecture.md` et `docs/deployment.md` présents ;
-- [ ] `LICENSE` présent (MIT par défaut sauf demande) ;
+- [ ] **roadmap présente** : `ROADMAP.md` à la racine **ou** `docs/roadmap.md` ;
+- [ ] **documentation technique** présente : `docs/architecture.md` et `docs/deployment.md`
+      — **obligatoires** pour les types `node-saas`, `mini-cms`, `wordpress-plugin`, `php-app`, `node-app`, `python-fastapi` ;
+      — **non requis** pour les types `claude-skill`, `docs-only`, `static-site` simple, `bash-script`, `python-script` (où une seule page de doc — `docs/usage.md` ou équivalent — suffit) ;
+- [ ] `LICENSE` présent (MIT par défaut sauf demande ; GPL-2.0-or-later pour `wordpress-plugin`) ;
 - [ ] aucun secret détecté par `check-repo-safety.sh` ;
 - [ ] aucun chemin serveur sensible dans les fichiers ;
 - [ ] git initialisé, premier commit prêt mais **non poussé** ;
@@ -289,9 +291,11 @@ Avant de conclure, vérifier que **toutes** ces conditions sont remplies :
 [ ] README.md écrit et personnalisé
 [ ] .gitignore adapté à la stack
 [ ] CHANGELOG.md initial
-[ ] ROADMAP.md initial
-[ ] docs/ minimum (architecture + deployment)
-[ ] LICENSE MIT (ou autre demandée)
+[ ] Roadmap initiale (ROADMAP.md OU docs/roadmap.md selon convention du type)
+[ ] docs/ adapté au type :
+    - app/plugin/cms : docs/architecture.md + docs/deployment.md obligatoires
+    - claude-skill / docs-only / static simple : docs/ minimal (au moins une page d'usage)
+[ ] LICENSE adaptée (MIT par défaut ; GPL-2.0-or-later si wordpress-plugin)
 [ ] .env.example si secrets nécessaires
 [ ] Aucun .env / token / clé / dump présent
 [ ] check-repo-safety.sh exécuté → état OK
