@@ -2,7 +2,12 @@
 
 Une collection de **Claude Skills** maison pour industrialiser la création de projets propres avec Claude Code.
 
-> Premier skill publié : **`repo-builder`** — créer en une commande des repositories GitHub propres, structurés, documentés, prêts pour le développement.
+Skills publiés :
+
+| Skill | Rôle |
+|---|---|
+| [`repo-builder`](skills/repo-builder/) | Créer un repo GitHub propre, structuré, documenté, en une commande |
+| [`production-auditor`](skills/production-auditor/) | Auditer un projet avant mise en production : score 7-axes, plan de correction, corrections sûres |
 
 Created by **João de Almeida** — Art of Dev
 https://artofdev.space
@@ -60,30 +65,91 @@ Le skill **`repo-builder`** force un standard : à chaque création de repo, Cla
 
 ---
 
+## Le skill `production-auditor`
+
+### Le problème
+
+Un projet généré rapidement avec Claude finit toujours par avoir des trous : balises `<title>` manquantes, `console.log` oubliés, webhooks Stripe non signés, `.env` commit é par accident, page 500 qui expose la stack-trace, mots de passe par défaut non changés, footer pauvre, design template-look.
+
+Aucun de ces points n'est dramatique seul. Cumulés, ils transforment un projet "qui marche" en projet **publiable seulement avec des excuses**.
+
+### La solution
+
+Le skill **`production-auditor`** force une méthode d'audit **en 10 phases** :
+
+1. lecture projet → 2. cartographie → 3. UX/UI → 4. technique → 5. sécurité → 6. SEO/contenu → 7. admin/billing → 8. scoring → 9. rapport → 10. corrections sûres.
+
+### Ce que le skill produit
+
+- un **score** sur 100 + 7 sous-scores (Technique 20 / UX 15 / Sécurité 25 / SEO 10 / Admin 15 / Billing 10 / Déploiement 5) ;
+- une **liste classée** des problèmes : `CRIT-NNN` (bloquants), `IMP-NNN` (importants), `MIN-NNN` (mineurs) ;
+- un **plan d'action** en 6 phases ;
+- un **rapport** dans `reports/audit-YYYY-MM-DD.md` ;
+- les **corrections sûres** appliquées automatiquement (typos, balises manquantes, `console.log` oubliés, etc.).
+
+### Verdict global
+
+| Score | Statut |
+|---|---|
+| 0–20 | Non publiable |
+| 21–40 | Très fragile |
+| 41–60 | Prototype acceptable, pas production |
+| 61–75 | Publiable avec corrections |
+| 76–90 | Solide. Lancement possible. |
+| 91–100 | Prêt production premium |
+
+### Mode `VIDEO_PRESENTATION_MODE`
+
+Pour un projet préparé en vue d'une vidéo YouTube / screen-recording, le skill active un mode strict qui vérifie en plus qu'aucun secret, chemin serveur, IP, ou nom d'utilisateur Linux n'apparaisse à l'écran.
+
+### Ce que le skill ne fait jamais sans accord explicite
+
+- pousser vers GitHub ;
+- supprimer un fichier (même `.bak`/`.tmp`) ;
+- afficher le contenu d'un `.env` ou d'un secret ;
+- modifier des credentials, mots de passe, tokens ;
+- faire un refactor d'architecture ;
+- changer le pricing, les routes existantes, la stack ;
+- lancer `npm install` / `composer install` / `pip install`.
+
+Voir [`docs/production-auditor-how-to-use.md`](docs/production-auditor-how-to-use.md), [`docs/production-auditor-examples.md`](docs/production-auditor-examples.md), et [`docs/article-section-production-auditor.md`](docs/article-section-production-auditor.md).
+
+---
+
 ## Structure du repo
 
 ```txt
 claude-skills-artofdev/
-├── README.md                # ce fichier
-├── CHANGELOG.md             # historique des versions du repo
-├── LICENSE                  # MIT
+├── README.md                                # ce fichier
+├── CHANGELOG.md
+├── LICENSE                                  # MIT
 ├── .gitignore
-├── install.sh               # installe le skill dans ~/.claude/skills/repo-builder
-├── uninstall.sh             # retire le skill avec sauvegarde datée
-├── docs/                    # documentation publique du projet
-│   ├── article-section.md   # section prête pour l'article jonk.space / Art of Dev
-│   ├── how-to-use.md
+├── install.sh                               # installe TOUS les skills présents dans skills/
+├── uninstall.sh                             # retire un ou tous les skills (avec sauvegarde)
+├── docs/
+│   ├── article-section.md                   # article jonk.space — Skill 1 (repo-builder)
+│   ├── how-to-use.md                        # repo-builder
 │   ├── repo-builder-examples.md
 │   ├── security-rules.md
-│   └── roadmap.md
+│   ├── roadmap.md
+│   ├── production-auditor-how-to-use.md     # production-auditor
+│   ├── production-auditor-examples.md
+│   └── article-section-production-auditor.md  # article jonk.space — Skill 2
 ├── skills/
-│   └── repo-builder/
-│       ├── SKILL.md         # cœur du skill, lu par Claude
-│       ├── README.md        # mode d'emploi du skill
-│       ├── references/      # documents que Claude consulte
-│       ├── templates/       # templates de README, ARCHITECTURE, etc.
-│       └── scripts/         # scripts shell (création + audit sécurité)
-└── examples/                # 5 exemples de prompts + résultats attendus
+│   ├── repo-builder/
+│   │   ├── SKILL.md
+│   │   ├── README.md
+│   │   ├── references/
+│   │   ├── templates/
+│   │   └── scripts/
+│   └── production-auditor/
+│       ├── SKILL.md
+│       ├── README.md
+│       ├── references/                       # 9 checklists (audit, tech, UX, SEO, sec, admin, billing, deploy, report-format)
+│       ├── templates/                        # 5 templates (audit-report, bug-list, correction-plan, score, release-checklist)
+│       └── scripts/                          # 4 scripts (scan-common-issues, scan-secrets, scan-dead-links, generate-audit-report)
+├── examples/                                # 5 exemples repo-builder + 5 exemples production-auditor
+└── reports/                                 # rapports d'audit générés
 ```
 
 ---
@@ -104,25 +170,34 @@ cd claude-skills-artofdev
 bash install.sh
 ```
 
-`install.sh` :
+`install.sh` (multi-skill) :
 
 - détecte le chemin du repo ;
 - crée `~/.claude/skills/` si nécessaire ;
-- installe ou met à jour `repo-builder` ;
-- **sauvegarde** un éventuel skill `repo-builder` existant dans `~/.claude/skills/.backup/repo-builder-YYYYMMDD-HHMMSS/` avant de l'écraser ;
+- itère sur **tous** les sous-dossiers de `skills/` et installe / met à jour chacun ;
+- **sauvegarde** chaque skill existant dans `~/.claude/skills/.backup/<skill>-YYYYMMDD-HHMMSS/` avant de l'écraser ;
 - affiche les instructions d'utilisation.
 
-Pour désinstaller :
+Pour désinstaller un skill spécifique (sans toucher aux autres) :
 
 ```bash
-bash uninstall.sh
+bash uninstall.sh repo-builder
+bash uninstall.sh production-auditor
+```
+
+Pour désinstaller **tous** les skills (avec confirmation) :
+
+```bash
+bash uninstall.sh --all
 ```
 
 ---
 
 ## Utilisation
 
-Dans n'importe quelle conversation Claude Code, le skill s'active dès que tu demandes la création d'un repo. Exemples de prompts qui déclenchent le skill :
+Dans n'importe quelle conversation Claude Code, le bon skill s'active automatiquement selon ta demande.
+
+### `repo-builder` (création de repo)
 
 - *"Crée un repo propre pour un site statique de portfolio."*
 - *"Initialise un repo Node/Next pour une app SaaS de gestion de tâches."*
@@ -130,9 +205,17 @@ Dans n'importe quelle conversation Claude Code, le skill s'active dès que tu de
 - *"Crée un repo Python/FastAPI pour une API d'envoi d'emails."*
 - *"Démarre un repo pour un mini CMS de coiffeur."*
 
-Claude applique alors les règles de `SKILL.md`, choisit la bonne structure, génère les fichiers, et te donne un rapport final.
+### `production-auditor` (audit avant prod)
 
-Voir [`examples/`](examples/) pour 5 cas concrets.
+- *"Audite ce projet."*
+- *"Vérifie si c'est prêt pour la prod."*
+- *"Audit complet : UX, SEO, sécurité, admin, déploiement."*
+- *"Audit sécurité only, lecture seule."*
+- *"Audit avant vidéo YouTube — masque les chemins serveur."*
+
+Claude applique alors les règles du `SKILL.md` correspondant et rend un rapport final.
+
+Voir [`examples/`](examples/) pour 10 cas concrets (5 par skill).
 
 ---
 
@@ -158,10 +241,11 @@ Voir [`docs/security-rules.md`](docs/security-rules.md) pour le détail.
 
 ## Roadmap
 
-- **v0.1** — `repo-builder` : structure de base, 5 stacks supportées, install/uninstall.
-- **v0.2** — détection automatique de la stack à partir d'une description en langage naturel.
-- **v0.3** — second skill : `mini-cms-builder` (générateur de mini CMS sectoriels PHP/SQLite).
-- **v0.4** — troisième skill : `video-prep` (préparation d'un repo en mode screen-recording propre).
+- **v0.1** — `repo-builder` : structure de base, 5 stacks supportées, install/uninstall (livré).
+- **v0.2** — `production-auditor` : audit 10-phases, scoring 7-axes, 9 checklists, 5 templates, 4 scripts (livré).
+- **v0.3** — `repo-builder` enrichi : détection automatique de stack depuis langage naturel.
+- **v0.4** — `mini-cms-builder` : générateur de mini CMS sectoriels PHP/SQLite.
+- **v0.5** — `video-prep` : préparation d'un repo en mode screen-recording propre.
 - **v1.0** — collection stable, publiée sur Art of Dev avec article + vidéo YouTube.
 
 Voir [`docs/roadmap.md`](docs/roadmap.md).
