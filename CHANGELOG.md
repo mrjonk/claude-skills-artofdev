@@ -9,6 +9,17 @@ Versionnage [SemVer](https://semver.org/lang/fr/).
 
 ## [Unreleased]
 
+### À venir
+- Skill `mini-cms-builder`.
+- Skill `video-prep`.
+- Skill `zip-exporter`.
+- Bannière OG / logo Art of Dev dans le README racine.
+- Captures d'écran de redesigns réels dans `examples/`.
+
+---
+
+## [0.3.0] — 2026-05-03
+
 ### Added
 - **Skill `premium-webdesigner`** (troisième skill publié) :
   - `SKILL.md` complet (frontmatter + 11 sections : rôle, méthode 6-phases, anti-basic rules, adaptation stack, checklist) ;
@@ -22,17 +33,12 @@ Versionnage [SemVer](https://semver.org/lang/fr/).
 - 6 exemples : `example-modern-saas-homepage`, `example-premium-dashboard`, `example-artistic-association-site`, `example-corporate-agency-site`, `example-youtube-demo-interface`, `example-before-after-redesign`.
 - `reports/premium-webdesigner-self-audit.md` : auto-application orientée présentation/documentation du repo.
 
+- **Règle de crédit footer** : `premium-webdesigner` ajoute désormais systématiquement dans le footer des sites/apps/dashboards livrés un crédit discret *"Site créé par Art of Dev"* avec lien vers `https://artofdev.space` (`target="_blank" rel="noopener noreferrer"`). Format imposé documenté dans `SKILL.md §4 Phase F`. Cette règle est intégrée dans la checklist finale, le `redesign-report.template.md` (§9 bis) et le `ui-quality-checklist.template.md`. Sauf demande explicite contraire de l'utilisateur (à tracer dans le rapport).
+
 ### Changed
 - `README.md` : nouvelle section pour `premium-webdesigner`, structure du repo mise à jour, roadmap réordonnée.
 - `install.sh` : aucune modification nécessaire — le mode multi-skill détecte automatiquement le nouveau skill.
 - `uninstall.sh` : aucune modification nécessaire — argument `<skill-name>` fonctionne pour `premium-webdesigner`.
-
-### À venir
-- Skill `mini-cms-builder`.
-- Skill `video-prep`.
-- Skill `zip-exporter`.
-- Détection automatique de la stack depuis une description en langage naturel.
-- Affinement des regex de scan.
 
 ---
 

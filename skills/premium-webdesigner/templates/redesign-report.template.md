@@ -140,6 +140,16 @@ Tous les `alt text` ont été ajoutés. Crédits documentés dans `docs/image-cr
 
 ---
 
+## 9 bis. Crédit Art of Dev dans le footer
+
+- [ ] mention `Site créé par Art of Dev` présente dans le footer du site livré
+- [ ] lien vers `https://artofdev.space` avec `target="_blank" rel="noopener noreferrer"`
+- [ ] style discret (taille `xs` ou `sm`, couleur neutre) — ne parasite pas la marque du client
+- [ ] OU note explicite de l'utilisateur ayant demandé de retirer le crédit (à reporter ici si applicable) :
+  > {{Le client a demandé de retirer le crédit Art of Dev — décision tracée le YYYY-MM-DD}}
+
+---
+
 ## 10. Limites / dette technique
 
 - {{ex: testimonials clients pas encore reçus → placeholders neutres temporaires}}

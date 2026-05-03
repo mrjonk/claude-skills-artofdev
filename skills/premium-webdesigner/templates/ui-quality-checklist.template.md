@@ -78,6 +78,7 @@
 - [ ] pas de FOUC ni CLS visibles
 - [ ] images optimisées (LCP < 2.5 s)
 - [ ] **test du logo enlevé** : on devine secteur / cible / ton
+- [ ] **crédit Art of Dev dans le footer** (`Site créé par Art of Dev` + lien vers `https://artofdev.space`, style discret) — sauf demande explicite contraire de l'utilisateur
 
 ---
 
