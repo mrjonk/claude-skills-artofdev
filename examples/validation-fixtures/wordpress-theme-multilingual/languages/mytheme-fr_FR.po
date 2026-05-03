@@ -1,0 +1,63 @@
+# French (France) translation for ArtOfDev Theme
+# Copyright (C) 2026 João de Almeida
+# Partial translation — fixture intentionally incomplete to test the skill.
+msgid ""
+msgstr ""
+"Project-Id-Version: ArtOfDev Theme 0.1.0\n"
+"PO-Revision-Date: 2026-05-03 12:00+0000\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: mytheme\n"
+
+#: header.php:14
+msgid "Main navigation"
+msgstr "Navigation principale"
+
+#: header.php:30
+msgid "Language switcher unavailable"
+msgstr ""
+
+#: footer.php:8
+msgid "Studio"
+msgstr "Studio"
+
+#: footer.php:9
+msgid "Independent web studio building bespoke websites."
+msgstr "Studio web indépendant qui conçoit des sites sur-mesure."
+
+#: footer.php:13
+msgid "Resources"
+msgstr ""
+
+#: footer.php:18
+#. translators: %s is the current year.
+msgid "Last update: %s"
+msgstr "Dernière mise à jour : %s"
+
+#: footer.php:28
+#. translators: %1$s is the current year, %2$s is the site name.
+msgid "© %1$s %2$s. All rights reserved."
+msgstr ""
+
+#: template-parts/contact-form.php:11
+msgid "Contact us"
+msgstr "Nous contacter"
+
+#: template-parts/contact-form.php:12
+msgid "A question, a project? We reply within 48 hours."
+msgstr "Une question, un projet ? On répond sous 48 heures."
+
+#: template-parts/contact-form.php:16
+msgid "Full name"
+msgstr "Nom complet"
+
+#: template-parts/contact-form.php:21
+msgid "Email address"
+msgstr ""
+
+#: template-parts/contact-form.php:32
+msgid "Send message"
+msgstr ""

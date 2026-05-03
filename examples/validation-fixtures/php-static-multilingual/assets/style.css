@@ -1,0 +1,3 @@
+/* Created by João de Almeida — feuille de style globale */
+/* to be translated: the following classes drive the layout — these comments must NOT be translated by the skill */
+.site-header { display: flex; justify-content: space-between; padding: 1rem 2rem; }

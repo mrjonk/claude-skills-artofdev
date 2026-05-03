@@ -9,6 +9,55 @@ Versionnage [SemVer](https://semver.org/lang/fr/).
 
 ## [Unreleased]
 
+### v1.0 blockers (à compléter avant `v1.0.0` final)
+
+- runtime live des 7 skills sur 2-3 projets réels (multilingual-site-engine sur 3 stacks) ;
+- runtime validation des 15 cas de routage `skill-orchestrator` ;
+- bannière OG `assets/og-banner.png` produite ;
+- captures avant/après audit, routing, traduction, optimisation token livrées dans `assets/captures/` ;
+- article éditorial relu et publié ;
+- décision humaine : promouvoir `v1.0.0-rc1` en `v1.0.0` final.
+
+---
+
+## [1.0.0-rc1] — 2026-05-03
+
+### Added
+- **`docs/shared-safety-rules.md`** : référence unique pour les règles non-négociables communes (push, secrets, destructif, validation, signaler>modifier, périmètre, mode vidéo, honnêteté). Pointée par les 7 SKILL.md.
+- **`docs/skill-routing-map.md`** : table de routage 7 skills + workflows multi-skills + anti-patterns + règles d'arbitrage.
+- **`docs/release-notes-v1.0.0-rc1.md`** : release notes RC1 complètes avec critères pour passer en v1.0.0 final.
+- **`docs/article-v1.0-collection-claude-skills-artofdev.md`** : article éditorial prêt à publication.
+- **Section `USE WHEN / SKIP WHEN`** ajoutée à chaque SKILL.md (7 skills) pour permettre le routage sans charger tout le contenu.
+- **Section `Token-conscious design`** dans le README.
+- **`reports/v1.0-readiness-audit.md`** : état des lieux honnête v1.0.
+- **`reports/validation-multilingual-site-engine.md`** : validation statique sur 3 stacks (fixtures `examples/validation-fixtures/`).
+- **`reports/validation-skill-orchestrator.md`** : couverture des 15 cas de routage attendus.
+- **`reports/v1.0-regression-validation.md`** : anti-régression statique des 5 skills antérieurs.
+- **`reports/token-optimization-v1.0.md`** : avant/après détaillé des SKILL.md.
+- **`reports/duplicate-rules-audit-v1.0.md`** : 10 familles de doublons identifiées, factorisées ou justifiées.
+- **`examples/skill-orchestrator-routing-test-cases.md`** : 15 cas de routage attendus.
+- **`examples/validation-fixtures/php-static-multilingual/`** : fixture testable PHP.
+- **`examples/validation-fixtures/nextjs-multilingual/`** : fixture testable Next.js + next-intl.
+- **`examples/validation-fixtures/wordpress-theme-multilingual/`** : fixture testable thème WordPress (gettext, .po/.mo).
+- **`examples/README.md`** : index complet des exemples.
+- **`assets/README.md`** : brief créatif pour bannière OG et captures à produire.
+
+### Changed
+- **Optimisation token** :
+  - `skills/site-ux-guardian/SKILL.md` : 849 → 258 lignes (-591, -69 %).
+  - `skills/seo-content-engine/SKILL.md` : 570 → 306 lignes (-264, -46 %).
+  - 5 SKILL.md (`repo-builder`, `production-auditor`, `premium-webdesigner`, `multilingual-site-engine`, `skill-orchestrator`) : sections de sécurité communes raccourcies + pointeur vers `docs/shared-safety-rules.md`.
+  - Total cumulé : 3 160 → 2 307 lignes (-853, -27 %).
+- **Roadmap** : v0.6/v0.7 marqués "committé, runtime à valider", ajout d'une étape `v1.0.0-rc1` explicite, séparation propre rc1 / v1.0 final.
+- **README** : suppression de la fausse séparation "publiés / planifiés", remplacée par une note honnêteté sur le statut RC1.
+
+### Fixed
+- Aucun nouveau bug corrigé dans cette passe — uniquement consolidation, optimisation et documentation.
+
+---
+
+## [0.6.0] — 2026-05-03
+
 ### Added
 - **Skill `multilingual-site-engine`** (sixième skill, **public-ready**) :
   - traduction, localisation et cohérence multilingue de sites et applications ;

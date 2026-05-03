@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "aria_label": "Navigation principale",
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "title": "Studio web premium",
+      "subtitle": "Sites sur-mesure, SEO sérieux, multilingue propre.",
+      "cta": "Prendre contact"
+    },
+    "cards": {
+      "design": {
+        "title": "Design sur-mesure",
+        "body": "Pas de template revendu. Chaque projet part d'une page blanche."
+      },
+      "dev": {
+        "title": "Développement solide",
+        "body": "PHP, Next.js, WordPress sur-mesure. Hébergement inclus."
+      },
+      "seo": {
+        "title": "SEO multilingue",
+        "body": "Traduction humaine, hreflang, slugs cohérents par langue."
+      }
+    },
+    "projects_count": "{count, plural, =0 {Aucun projet pour l'instant} one {# projet livré} other {# projets livrés}}"
+  },
+  "contact": {
+    "title": "Nous contacter",
+    "intro": "Une question, un projet ? On répond sous 48 heures.",
+    "success": "Votre message a bien été envoyé.",
+    "submit": "Envoyer le message",
+    "fields": {
+      "name": { "label": "Nom complet", "placeholder": "Jeanne Dupont" },
+      "email": { "label": "Adresse e-mail", "placeholder": "vous@email.com" }
+    },
+    "errors": {
+      "name_required": "Ce champ est requis.",
+      "email_required": "Merci d'entrer une adresse e-mail valide."
+    }
+  },
+  "footer": {
+    "copyright": "© {year} ArtOfDev. Tous droits réservés."
+  }
+}

@@ -2,7 +2,7 @@
 
 Une collection de **Claude Skills** maison pour industrialiser la création de projets propres avec Claude Code.
 
-Skills publiés :
+Les **7 skills** de la collection (statut `v1.0.0-rc1` — runtime testing humain à confirmer avant `v1.0.0` final) :
 
 | Skill | Rôle |
 |---|---|
@@ -11,13 +11,10 @@ Skills publiés :
 | [`premium-webdesigner`](skills/premium-webdesigner/) | Empêcher les designs IA basiques : méthode 6-phases (brief → 21st.dev/shadcn → composants → direction artistique → images → exécution alignée stack) |
 | [`seo-content-engine`](skills/seo-content-engine/) | Empêcher les articles IA génériques : méthode éditoriale 13-étapes, anti-bullshit, scoring qualité 0-100, public-ready |
 | [`site-ux-guardian`](skills/site-ux-guardian/) | Empêcher les corrections partielles : audit ergonomique transversal (menus, footers, routes, doublons, front/admin, responsive, sécurité basique, webdesign guidelines 14 axes), score cohérence + score visuel sur 100, public-ready |
-
-Skills planifiés :
-
-| Skill | Rôle |
-|---|---|
 | [`multilingual-site-engine`](skills/multilingual-site-engine/) | Traduire, localiser et internationaliser un site sans casser son architecture : demande les langues, détecte l'i18n existante, préserve variables et placeholders, traduit naturellement, humanise les textes (anti-style IA), gère hreflang, slugs, menus, footers, formulaires, emails et formats locaux |
 | [`skill-orchestrator`](skills/skill-orchestrator/) | Coordonner les autres skills sans charger automatiquement l'ensemble : analyse l'intention, identifie le skill le plus spécifique, propose des skills secondaires uniquement si utile, demande confirmation avant de mobiliser plusieurs gros skills |
+
+> **Note honnêteté :** la collection est en `v1.0.0-rc1`. Les 7 skills passent la **validation statique** (cohérence des règles, USE/SKIP discriminants, optimisation token effective). La **validation runtime** (invoquer chaque skill dans une session Claude live et observer le comportement) reste à effectuer avant de cuter `v1.0.0` final. Voir [`reports/v1.0-readiness-audit.md`](reports/v1.0-readiness-audit.md) et [`docs/release-notes-v1.0.0-rc1.md`](docs/release-notes-v1.0.0-rc1.md).
 
 Created by **João de Almeida** — Art of Dev
 https://artofdev.space
@@ -481,16 +478,17 @@ Voir [`docs/security-rules.md`](docs/security-rules.md) pour le détail.
 
 ## Roadmap
 
-- **v0.1** — `repo-builder` : structure de base, 5 stacks supportées, install/uninstall (livré).
-- **v0.2** — `production-auditor` : audit 10-phases, scoring 7-axes (livré).
-- **v0.3** — `premium-webdesigner` : design 6-phases, 21st.dev/shadcn workflow, anti-basic rules, scoring UI quality (livré).
-- **v0.4** — `seo-content-engine` : rédaction SEO 13-étapes, anti-bullshit, scoring qualité, public-ready (livré).
-- **v0.5** — `site-ux-guardian` : gardien de cohérence ergonomique transversale, score cohérence + score visuel, public-ready (livré).
-- **v0.6** — `multilingual-site-engine` : traduction, localisation et cohérence multilingue (langues, i18n, hreflang, slugs, menus, footers, formulaires, humanisation anti-style IA).
-- **v0.7** — `skill-orchestrator` : coordination légère qui identifie le skill principal, propose les skills secondaires uniquement si utile, évite le chargement multi-skills automatique.
-- **v1.0** — collection stable de 7 skills, publiée avec article + documentation complète.
+- **v0.1** — `repo-builder` (livré).
+- **v0.2** — `production-auditor` (livré).
+- **v0.3** — `premium-webdesigner` (livré).
+- **v0.4** — `seo-content-engine` (livré).
+- **v0.5** — `site-ux-guardian` (livré).
+- **v0.6** — `multilingual-site-engine` (committé, runtime à valider).
+- **v0.7** — `skill-orchestrator` (committé, runtime à valider).
+- **v1.0.0-rc1** — release candidate : 7 skills architecturalement stables, optimisation token effective, validations statiques documentées.
+- **v1.0.0** — runtime humain confirmé sur les 7 skills, bannière OG livrée, captures avant/après livrées, article éditorial publié.
 
-Voir [`docs/roadmap.md`](docs/roadmap.md) et [`docs/skill-routing-map.md`](docs/skill-routing-map.md).
+Voir [`docs/roadmap.md`](docs/roadmap.md), [`docs/skill-routing-map.md`](docs/skill-routing-map.md), [`docs/release-notes-v1.0.0-rc1.md`](docs/release-notes-v1.0.0-rc1.md), [`docs/shared-safety-rules.md`](docs/shared-safety-rules.md).
 
 ---
 

@@ -61,14 +61,17 @@ Détails complets : [`references/routing-rules.md`](references/routing-rules.md)
 
 ## 6. Règles non négociables
 
+Tronc commun (push, secrets, destructif, validation avant grande échelle) :
+[`docs/shared-safety-rules.md`](../../docs/shared-safety-rules.md).
+
+Spécifique skill-orchestrator :
+
 1. **JAMAIS** créer un repo sans demande explicite.
-2. **JAMAIS** faire un `git push`, `git reset --hard`, `rm -rf`.
-3. **JAMAIS** lancer un audit complet "automatique" sans validation.
-4. **JAMAIS** charger plusieurs gros skills en chaîne sans confirmation.
-5. **JAMAIS** exécuter une action destructive (suppression de fichier, refonte massive) sans accord écrit.
-6. **TOUJOURS** expliquer le choix du skill en une phrase.
-7. **TOUJOURS** proposer le skill le plus spécifique d'abord.
-8. **TOUJOURS** mentionner si l'orchestrateur peut être évité (skill direct).
+2. **JAMAIS** lancer un audit complet "automatique" sans validation.
+3. **JAMAIS** charger plusieurs gros skills en chaîne sans confirmation.
+4. **TOUJOURS** expliquer le choix du skill en une phrase.
+5. **TOUJOURS** proposer le skill le plus spécifique d'abord.
+6. **TOUJOURS** mentionner si l'orchestrateur peut être évité (skill direct).
 
 ---
 

@@ -46,19 +46,18 @@ Tu produis un repo qu'on peut montrer dans un article, dans une vidéo YouTube, 
 
 ## 2. Règles strictes (non négociables)
 
-1. **Ne jamais pousser** vers GitHub sans accord explicite de l'utilisateur. Préparer les commandes, oui. Les exécuter, non.
-2. **Ne jamais supprimer** de fichiers existants sans accord explicite et écrit.
-3. **Ne jamais commiter** :
-   - `.env`, `.env.production`, `.env.local` (uniquement `.env.example` autorisé) ;
-   - tokens, clés API, mots de passe, identifiants SMTP, certificats privés ;
-   - clés SSH (`id_rsa`, `id_ed25519`, `*.pem`, `*.ppk`) ;
-   - dumps SQL contenant des données réelles ;
-   - backups privés ;
-   - `node_modules/`, `vendor/`, `.venv/`, builds.
-4. **Ne jamais inventer** de fonctionnalité. Si Stripe n'est pas configuré, dis-le. Si l'email ne fonctionne pas, dis-le.
-5. **Toujours travailler dans le dossier courant** sauf instruction contraire.
-6. **Toujours vérifier** le dossier courant avant d'écrire (`pwd`, `ls`).
-7. **Toujours produire un rapport final** synthétique.
+Voir [`docs/shared-safety-rules.md`](../../docs/shared-safety-rules.md) pour le tronc
+commun (pas de push sans accord, pas de modification de secrets, pas d'action
+destructive sans validation, signaler > corriger, honnêteté).
+
+**Spécifique à `repo-builder` :**
+
+1. **Ne jamais commiter** : dumps SQL contenant des données réelles, backups privés,
+   `node_modules/`, `vendor/`, `.venv/`, builds. (Cf. `references/security-checklist.md`
+   pour la liste complète.)
+2. **Toujours travailler dans le dossier courant** sauf instruction contraire.
+3. **Toujours vérifier** le dossier courant avant d'écrire (`pwd`, `ls`).
+4. **Toujours produire un rapport final** synthétique (cf. §13).
 
 ---
 
@@ -196,10 +195,14 @@ Les variantes par stack sont détaillées dans `references/repo-structure-guide.
 
 ## 6. Règles de sécurité
 
-Voir `references/security-checklist.md` pour le détail. Résumé exécutable :
+Tronc commun : [`docs/shared-safety-rules.md`](../../docs/shared-safety-rules.md).
+
+Détail repo-builder : `references/security-checklist.md` + `docs/security-rules.md`
+(`.gitignore` minimum + audit avant commit).
+
+Spécifique :
 
 - `.env` interdit, `.env.example` obligatoire si secrets ;
-- `.gitignore` minimum (cf. `docs/security-rules.md` §4) ;
 - aucun chemin serveur sensible (`/var/www/...`, `/home/...`) commité ;
 - aucune IP locale, nom d'utilisateur Linux, hostname interne ;
 - aucune donnée client réelle dans les fixtures ;
@@ -209,13 +212,15 @@ Voir `references/security-checklist.md` pour le détail. Résumé exécutable :
 
 ## 7. Règles Git/GitHub
 
+Tronc commun (push, force-push, amend, no-verify) :
+[`docs/shared-safety-rules.md`](../../docs/shared-safety-rules.md) §1.
+
+Spécifique repo-builder :
+
 - Initialise toujours avec `git init` (jamais `git init --bare` à moins que ce soit demandé).
 - Branche par défaut : `main`.
 - Premier commit : message clair, en-tête `chore:`, `feat:`, ou `init:`.
 - Jamais `git add -A` sans avoir vérifié `git status`. Préfère `git add <fichiers>` explicites.
-- Jamais `git push --force`.
-- Jamais `git commit --amend` sur un commit déjà publié.
-- Jamais `--no-verify`.
 - Pour GitHub :
   - utiliser `gh` ;
   - protocole **SSH** ;
@@ -264,17 +269,14 @@ Demander confirmation avant :
 
 ## 10. Commandes interdites ou dangereuses
 
-**Jamais** sans accord écrit explicite, et jamais en mode "scaffolding" :
+Tronc commun (rm -rf, git reset --hard, push --force, gh repo delete, modifs `~/.ssh`) :
+[`docs/shared-safety-rules.md`](../../docs/shared-safety-rules.md) §3.
 
-- `rm -rf` (sauf chemin clairement temporaire et confirmé) ;
-- `git push --force` (toutes variantes) ;
-- `git reset --hard` ;
-- `git clean -fd` ;
-- `gh repo delete` ;
+Spécifique repo-builder, jamais en mode "scaffolding" :
+
 - `gh repo edit --visibility public` sur un repo existant ;
 - `cat .env`, `printenv`, `env | grep -i secret/token/key/password` (afficherait des secrets) ;
-- `grep -R PASSWORD .`, `grep -R SECRET .` en mode visible (peut être fait silencieusement pour audit, mais pas affiché à l'utilisateur ni à l'écran en mode vidéo) ;
-- toute commande qui modifie `~/.ssh/`, `~/.gitconfig` global sans accord.
+- `grep -R PASSWORD .`, `grep -R SECRET .` en mode visible (peut être fait silencieusement pour audit, mais pas affiché à l'utilisateur ni à l'écran en mode vidéo).
 
 ---
 

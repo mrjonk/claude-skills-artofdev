@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "aria_label": "Main navigation",
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "title": "Premium web studio",
+      "subtitle": "Bespoke websites, serious SEO, clean multilingual.",
+      "cta": "Get in touch"
+    },
+    "cards": {
+      "design": {
+        "title": "Custom design",
+        "body": "No reused template. Each project starts from a blank page."
+      },
+      "dev": {
+        "title": "Solid development",
+        "body": "PHP, Next.js, custom WordPress. Hosting included."
+      },
+      "seo": {
+        "title": "Multilingual SEO",
+        "body": "Human translation, hreflang, slugs that match the language."
+      }
+    },
+    "projects_count": "{count, plural, =0 {No project yet} one {# project shipped} other {# projects shipped}}"
+  },
+  "contact": {
+    "title": "Contact us",
+    "intro": "A question, a project? We reply within 48 hours.",
+    "success": "Your message has been sent.",
+    "submit": "Send message",
+    "fields": {
+      "name": { "label": "Full name", "placeholder": "Jane Doe" },
+      "email": { "label": "Email address", "placeholder": "you@email.com" }
+    },
+    "errors": {
+      "name_required": "This field is required.",
+      "email_required": "Please enter a valid email address."
+    }
+  },
+  "footer": {
+    "copyright": "© {year} ArtOfDev. All rights reserved."
+  }
+}

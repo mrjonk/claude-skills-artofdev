@@ -92,32 +92,22 @@ Le skill doit s'activer pour des demandes du type :
 
 ## 4. Règles strictes
 
-### 4.1 Sécurité — non négociable
+Tronc commun : [`docs/shared-safety-rules.md`](../../docs/shared-safety-rules.md)
+(secrets, push, destructif, non-destruction de l'existant, périmètre projet,
+mode `VIDEO_PRESENTATION_MODE`, honnêteté, procédure de fuite).
 
-- **Ne jamais afficher** le contenu d'un `.env`, `.env.local`, `.env.production`.
-- **Ne jamais committer** un secret, token, clé API, mot de passe, certificat privé.
-- **Ne jamais supprimer** un `.env` ou un fichier de configuration.
-- **Ne jamais exposer** un token dans un message, un commit, un commentaire, un rapport, ou un nom de fichier.
-- **Ne jamais modifier** des credentials sans demande écrite explicite.
-- **Ne jamais faire** de `rm -rf`, `git reset --hard`, `git clean -fd`, `git push --force` sans accord écrit.
-- **Ne jamais pousser** vers GitHub sans validation explicite.
-- **Ne jamais modifier** un environnement de production sans backup vérifié.
-- **Ne jamais casser** une app fonctionnelle pour une correction cosmétique.
-
-Si un secret apparaît à l'audit : signaler **uniquement** le fichier et la ligne, **ne pas reproduire** la valeur.
-
-### 4.2 Non-destruction
+### 4.1 Spécifique audit
 
 - L'audit est **lecture seule par défaut**.
-- Les corrections appliquées doivent être **réversibles** (un seul `git revert` doit suffire à annuler).
-- Ne jamais supprimer un fichier sans que l'utilisateur l'ait validé par écrit.
+- Les corrections appliquées doivent être **réversibles** (un seul `git revert` suffit).
 - Ne jamais réécrire un module entier en mode "audit" — c'est de la refonte, pas un audit.
+- Ne jamais casser une app fonctionnelle pour une correction cosmétique.
+- Ne jamais modifier un environnement de **production** sans backup vérifié.
 
-### 4.3 Périmètre
+### 4.2 Si un secret est détecté
 
-- Travailler **uniquement** dans le projet ciblé.
-- Ne pas remonter au-dessus du dossier projet.
-- Ne pas modifier `~/.gitconfig`, `~/.ssh/`, ou des fichiers hors projet.
+Signaler **uniquement** le fichier et la ligne, **ne pas reproduire** la valeur.
+Procédure complète : [`docs/shared-safety-rules.md`](../../docs/shared-safety-rules.md) §10.
 
 ---
 
@@ -267,12 +257,11 @@ Modifications, demander confirmation pour les corrections autres que :
 
 ## 12. Commandes interdites
 
-**Jamais** sans accord explicite et écrit :
+Tronc commun (rm -rf, git push --force, reset --hard, gh repo delete) :
+[`docs/shared-safety-rules.md`](../../docs/shared-safety-rules.md) §3.
 
-- `rm -rf` ;
-- `git push`, `git push --force` ;
-- `git reset --hard`, `git clean -fd` ;
-- `gh repo delete`, `gh repo edit --visibility public` ;
+Spécifique production-auditor :
+
 - `npm install` / `composer install` / `pip install` (sauf `--dry-run` ou audit deps explicite) ;
 - toute commande qui modifie la base de données ;
 - toute commande qui contacte un environnement de production ;

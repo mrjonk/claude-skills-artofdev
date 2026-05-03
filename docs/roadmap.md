@@ -70,7 +70,7 @@ Statut : **livré le 2026-05-03**.
 
 ---
 
-## v0.6 — `multilingual-site-engine` (planifié)
+## v0.6 — `multilingual-site-engine` (committé, runtime à valider)
 
 Skill dédié à la **traduction, localisation et cohérence multilingue** des sites, interfaces, contenus, menus, SEO, slugs, métadonnées et textes administrables.
 
@@ -90,7 +90,7 @@ Couverture :
 
 ---
 
-## v0.7 — `skill-orchestrator` (planifié)
+## v0.7 — `skill-orchestrator` (committé, runtime à valider)
 
 Skill de **coordination** qui analyse une demande utilisateur, identifie les skills utiles, évite les doublons, **ne charge pas tout automatiquement**, et propose une stratégie d'exécution claire avant de mobiliser plusieurs skills.
 
@@ -106,13 +106,38 @@ Comportement :
 
 ---
 
-## v1.0 — Collection stable
+## v1.0.0-rc1 — Release candidate (en cours)
 
-Statut : **objectif fin 2026**.
+Statut : **release candidate publiable**.
 
-- 7 skills publiés et stabilisés.
-- Documentation complète.
-- Article éditorial accompagnant la collection.
+Atteints :
+
+- 7 skills architecturalement stables, validés statiquement.
+- Optimisation token effective : `site-ux-guardian/SKILL.md` 849 → 258 lignes ; `seo-content-engine/SKILL.md` 570 → 306 lignes.
+- `docs/shared-safety-rules.md` factorise les règles non-négociables communes.
+- `docs/skill-routing-map.md` couvre les 7 skills.
+- 15 cas de routage `skill-orchestrator` documentés.
+- 3 fixtures de validation `multilingual-site-engine` (PHP statique, Next.js, WordPress).
+- Article éditorial v1.0 prêt.
+- Release notes RC1 dans `docs/release-notes-v1.0.0-rc1.md`.
+
+Manque pour la promotion en `v1.0.0` :
+
+- runtime live des 7 skills sur 2-3 projets réels par stack ;
+- validation runtime des 15 cas de routage ;
+- bannière OG + captures avant/après livrées ;
+- article publié.
+
+---
+
+## v1.0.0 — Collection stable
+
+Statut : **après runtime humain confirmé**.
+
+- 7 skills runtime-validés.
+- Bannière OG + 4 séries de captures livrées.
+- Article éditorial publié.
+- Tag `v1.0.0` + release GitHub (sans `--prerelease`).
 
 ---
 

@@ -1,0 +1,15 @@
+/*
+Theme Name: ArtOfDev Theme
+Theme URI: https://artofdev.example/themes/artofdev
+Author: João de Almeida
+Author URI: https://artofdev.example
+Description: Thème WordPress sur-mesure, prêt pour le multilingue (textdomain `mytheme`).
+Version: 0.1.0
+License: GPL-2.0-or-later
+Text Domain: mytheme
+Domain Path: /languages
+*/
+
+/* Created by João de Almeida — feuille de style minimale */
+.site-header { display: flex; justify-content: space-between; padding: 1rem 2rem; }
+.lang-switcher { list-style: none; display: flex; gap: 0.5rem; }

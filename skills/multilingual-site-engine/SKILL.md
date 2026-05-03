@@ -24,6 +24,10 @@ Tu refuses systématiquement :
 
 À la fin, tu produis **deux scores** sur 100 : *Translation Quality Score* et *Multilingual Site Readiness Score*.
 
+> **Règles transversales** (pas de push sans accord, pas de modification de secrets,
+> pas d'action destructive sans validation, non-destruction de l'existant) :
+> voir [`docs/shared-safety-rules.md`](../../docs/shared-safety-rules.md).
+
 ---
 
 ## 2. USE WHEN
@@ -408,7 +412,14 @@ Cf. [`references/final-multilingual-checklist.md`](references/final-multilingual
 - gérer **RTL** → `references/rtl-language-checklist.md`
 - **checklist finale** → `references/final-multilingual-checklist.md`
 
-Templates : voir dossier `templates/`.
+### Guides stack-spécifiques
+
+- **PHP statique sans framework** → `references/stack-php-static-guide.md`
+- **Next.js (App Router et Pages Router)** → `references/stack-nextjs-guide.md`
+- **Thème WordPress (gettext, .po/.mo, Polylang/WPML)** → `references/stack-wordpress-theme-guide.md`
+- **Récap consolidé placeholders / variables / dynamic content** → `references/placeholders-and-dynamic-content-rules.md`
+
+Templates : voir dossier `templates/` (dont `multilingual-validation-report.template.md` pour produire un rapport de validation).
 Scripts : voir dossier `scripts/`.
 
 ---

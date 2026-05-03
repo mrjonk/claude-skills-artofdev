@@ -192,8 +192,7 @@ Règles d'exécution :
   - les flows critiques (auth, paiement, checkout) ;
   - l'admin et ses fonctionnalités ;
   - les SEO existants (titles, meta, balises).
-- **Ne jamais remplacer** des données BDD par du contenu hardcodé pour "faire joli".
-- **Ne jamais supprimer** une fonctionnalité existante sans accord explicite.
+- Cf. [`docs/shared-safety-rules.md`](../../docs/shared-safety-rules.md) §6 (non-destruction de l'existant).
 - **Documenter chaque fichier modifié** dans `templates/redesign-report.template.md`.
 
 #### Crédit Art of Dev dans le footer (obligatoire)
@@ -290,11 +289,14 @@ Exemple de footer recommandé :
 
 ### 5.2 Sécurité / non-destruction
 
-- Ne **jamais** modifier `.env`, `wp-config.php`, fichiers de credentials.
-- Ne **jamais** supprimer de fichiers existants sans accord écrit.
-- Ne **jamais** remplacer une donnée dynamique par du hardcodé.
-- Ne **jamais** casser un flow critique (auth, paiement, formulaire).
-- Toujours travailler sur des fichiers nouveaux ou modifier de manière **réversible** (un `git revert` doit suffire).
+Tronc commun : [`docs/shared-safety-rules.md`](../../docs/shared-safety-rules.md)
+(secrets, push, destructif, non-destruction).
+
+Spécifique premium-webdesigner :
+
+- ne **jamais** remplacer une donnée dynamique (DB, API, CMS) par du hardcodé pour "faire joli" ;
+- ne **jamais** casser un flow critique (auth, paiement, formulaire) avec une refonte visuelle ;
+- toujours travailler sur des fichiers nouveaux ou modifier de manière **réversible**.
 
 ### 5.3 Adaptation à la stack
 
@@ -400,9 +402,11 @@ Demander confirmation avant :
 
 ## 10. Commandes interdites
 
-- `rm -rf` (toutes formes) ;
-- `git push --force`, `git reset --hard`, `git clean -fd` ;
-- modification de `.env`, `wp-config.php`, fichiers de credentials ;
+Tronc commun (rm -rf, force-push, reset --hard, modif `.env`/credentials) :
+[`docs/shared-safety-rules.md`](../../docs/shared-safety-rules.md) §2-3.
+
+Spécifique premium-webdesigner :
+
 - remplacement de données dynamiques par du hardcodé ;
 - imposition d'une stack moderne (React/Tailwind/Next) sur un projet PHP/HTML/WordPress sans accord ;
 - copie de composants 21st.dev sans citation de la source ;
