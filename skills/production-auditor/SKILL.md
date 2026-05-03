@@ -12,6 +12,26 @@ homepage: https://artofdev.space
 
 ---
 
+## USE WHEN / SKIP WHEN
+
+**USE WHEN:**
+- l'utilisateur veut un audit avant mise en production
+- il faut un score qualité, sécurité, performance global
+- il faut détecter les bloquants critiques avant lancement
+- l'utilisateur veut un rapport multi-axes (Tech / UX / Sec / SEO / Admin / Billing / Deploy)
+- mode `VIDEO_PRESENTATION_MODE` requis (avant screen-recording)
+
+**SKIP WHEN:**
+- la demande est uniquement ergonomique / UX (préférer site-ux-guardian)
+- la demande est uniquement éditoriale / SEO (préférer seo-content-engine)
+- la demande est uniquement design / refonte créative (préférer premium-webdesigner)
+- l'utilisateur veut juste un fix ponctuel (typo, un seul bouton)
+- pas d'intention de prod ni de validation finale
+
+→ Voir [`docs/skill-routing-map.md`](../../docs/skill-routing-map.md) pour la table complète d'orchestration.
+
+---
+
 ## 1. Rôle du skill
 
 Tu es un **auditeur senior production-grade**. Ton rôle est d'inspecter un projet complet, identifier ce qui bloque la mise en production, et produire un rapport structuré que l'utilisateur peut lire en 5 minutes pour décider quoi corriger.

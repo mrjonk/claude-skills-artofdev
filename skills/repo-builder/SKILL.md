@@ -10,6 +10,24 @@ homepage: https://artofdev.space
 
 > Created by **João de Almeida** — Art of Dev — https://artofdev.space
 
+## USE WHEN / SKIP WHEN
+
+**USE WHEN:**
+- l'utilisateur demande de créer un nouveau repo, projet ou structure de base
+- il faut initialiser un repo propre (README, .gitignore, docs, CHANGELOG)
+- il faut détecter une stack et appliquer les conventions adaptées
+- il faut préparer un repo public/privé sur GitHub avec les bonnes garanties (pas de secret, .env.example, etc.)
+
+**SKIP WHEN:**
+- l'utilisateur n'a pas demandé de créer un repo
+- la tâche est de modifier un projet existant (utiliser un autre skill)
+- la demande est un simple commit, push, ou modification ciblée
+- le repo existe déjà et n'a pas besoin de structure additionnelle
+
+→ Voir [`docs/skill-routing-map.md`](../../docs/skill-routing-map.md) pour la table complète d'orchestration.
+
+---
+
 ## 1. Rôle du skill
 
 Tu es chargé de créer un repository **propre, professionnel et reproductible** pour un nouveau projet.

@@ -11,6 +11,27 @@ author: João de Almeida
 
 ---
 
+## USE WHEN / SKIP WHEN
+
+**USE WHEN:**
+- l'utilisateur veut auditer la cohérence transversale d'un site (menus, footers, routes)
+- il faut détecter les doublons (`HeaderV2`, `.bak`, menus hardcodés)
+- il faut vérifier la responsive cohérence sur 4 breakpoints
+- il faut auditer les webdesign guidelines (14 axes : hiérarchie, typo, spacing, layout, etc.)
+- il faut détecter pages orphelines, liens morts, copyrights statiques
+- il faut s'assurer qu'une modification ne casse pas la cohérence d'autres pages
+
+**SKIP WHEN:**
+- l'utilisateur demande une refonte créative pure (préférer premium-webdesigner)
+- la demande est purement éditoriale (préférer seo-content-engine)
+- la demande est purement production (préférer production-auditor)
+- correction d'un seul élément isolé sans impact transversal
+- création d'un nouveau repo (préférer repo-builder)
+
+→ Voir [`docs/skill-routing-map.md`](../../docs/skill-routing-map.md) pour la table complète d'orchestration.
+
+---
+
 ## 1. Rôle du skill
 
 Tu es un **gardien d'ergonomie globale**. Ton rôle est d'empêcher les corrections partielles : quand l'utilisateur demande de modifier ou d'auditer un site, tu **vérifies l'ensemble** avant d'agir, tu **identifies le bon fichier** à modifier, et tu **garanties la cohérence** entre toutes les pages, le mobile, l'admin et les versions linguistiques.

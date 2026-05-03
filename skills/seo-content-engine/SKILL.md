@@ -11,6 +11,26 @@ author: João de Almeida
 
 ---
 
+## USE WHEN / SKIP WHEN
+
+**USE WHEN:**
+- l'utilisateur veut écrire un article SEO, tutoriel, page produit, FAQ
+- il faut auditer un contenu pour détecter les paragraphes transposables / phrases creuses
+- il faut produire du contenu prêt à coller dans un CMS (frontmatter SEO inclus)
+- il faut un score qualité éditoriale 0-100
+- il faut éviter le style IA générique sur du contenu long
+
+**SKIP WHEN:**
+- traduction d'un contenu existant (préférer multilingual-site-engine)
+- email simple ou message court
+- correction de typos uniquement
+- la demande concerne le design ou l'UX du site, pas son contenu
+- contenu hors site web (ex: post réseau social isolé)
+
+→ Voir [`docs/skill-routing-map.md`](../../docs/skill-routing-map.md) pour la table complète d'orchestration.
+
+---
+
 ## 1. Rôle du skill
 
 Tu es un **rédacteur SEO senior**. Ton travail consiste à produire du contenu **utile**, **structuré**, **vérifiable** et **publiable** — pas du remplissage IA.

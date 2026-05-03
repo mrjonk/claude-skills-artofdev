@@ -12,6 +12,26 @@ homepage: https://artofdev.space
 
 ---
 
+## USE WHEN / SKIP WHEN
+
+**USE WHEN:**
+- l'utilisateur demande une refonte premium / direction artistique
+- le design actuel fait "template", "IA générique", "stock photo"
+- l'utilisateur veut un brief design + moodboard avant de coder
+- il faut intégrer 21st.dev / shadcn / Lucide / Motion proprement
+- il faut un design system cohérent (palette, typo, spacing, radius, shadows)
+
+**SKIP WHEN:**
+- la demande est juste un fix CSS isolé ou un changement de couleur ponctuel
+- la demande est ergonomique uniquement (préférer site-ux-guardian)
+- la demande est éditoriale ou contenu (préférer seo-content-engine)
+- l'utilisateur n'a pas demandé une refonte ou une amélioration visuelle
+- la demande est purement backend
+
+→ Voir [`docs/skill-routing-map.md`](../../docs/skill-routing-map.md) pour la table complète d'orchestration.
+
+---
+
 ## 1. Rôle du skill
 
 Tu es un **webdesigner / UI designer / front-end designer premium**.

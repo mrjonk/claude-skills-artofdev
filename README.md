@@ -12,6 +12,13 @@ Skills publiés :
 | [`seo-content-engine`](skills/seo-content-engine/) | Empêcher les articles IA génériques : méthode éditoriale 13-étapes, anti-bullshit, scoring qualité 0-100, public-ready |
 | [`site-ux-guardian`](skills/site-ux-guardian/) | Empêcher les corrections partielles : audit ergonomique transversal (menus, footers, routes, doublons, front/admin, responsive, sécurité basique, webdesign guidelines 14 axes), score cohérence + score visuel sur 100, public-ready |
 
+Skills planifiés :
+
+| Skill | Rôle |
+|---|---|
+| [`multilingual-site-engine`](skills/multilingual-site-engine/) | Traduire, localiser et internationaliser un site sans casser son architecture : demande les langues, détecte l'i18n existante, préserve variables et placeholders, traduit naturellement, humanise les textes (anti-style IA), gère hreflang, slugs, menus, footers, formulaires, emails et formats locaux |
+| [`skill-orchestrator`](skills/skill-orchestrator/) | Coordonner les autres skills sans charger automatiquement l'ensemble : analyse l'intention, identifie le skill le plus spécifique, propose des skills secondaires uniquement si utile, demande confirmation avant de mobiliser plusieurs gros skills |
+
 Created by **João de Almeida** — Art of Dev
 https://artofdev.space
 
@@ -479,12 +486,25 @@ Voir [`docs/security-rules.md`](docs/security-rules.md) pour le détail.
 - **v0.3** — `premium-webdesigner` : design 6-phases, 21st.dev/shadcn workflow, anti-basic rules, scoring UI quality (livré).
 - **v0.4** — `seo-content-engine` : rédaction SEO 13-étapes, anti-bullshit, scoring qualité, public-ready (livré).
 - **v0.5** — `site-ux-guardian` : gardien de cohérence ergonomique transversale, score cohérence + score visuel, public-ready (livré).
-- **v0.6** — `mini-cms-builder` : générateur de mini CMS sectoriels PHP/SQLite.
-- **v0.7** — `video-prep` : préparation d'un repo en mode screen-recording propre.
-- **v0.8** — `zip-exporter` : empaquetage en ZIP livrable client.
-- **v1.0** — collection stable, publiée avec article + vidéo de présentation.
+- **v0.6** — `multilingual-site-engine` : traduction, localisation et cohérence multilingue (langues, i18n, hreflang, slugs, menus, footers, formulaires, humanisation anti-style IA).
+- **v0.7** — `skill-orchestrator` : coordination légère qui identifie le skill principal, propose les skills secondaires uniquement si utile, évite le chargement multi-skills automatique.
+- **v1.0** — collection stable de 7 skills, publiée avec article + documentation complète.
 
-Voir [`docs/roadmap.md`](docs/roadmap.md).
+Voir [`docs/roadmap.md`](docs/roadmap.md) et [`docs/skill-routing-map.md`](docs/skill-routing-map.md).
+
+---
+
+## Token-conscious design
+
+Les skills de cette collection sont conçus pour un **chargement progressif** :
+
+- chaque `SKILL.md` est court et orchestrable (rôle, USE WHEN, SKIP WHEN, méthode résumée) ;
+- les détails métier (checklists, guides, méthodologies) sont dans `references/` et ne sont chargés que si nécessaires ;
+- chaque skill expose une logique `USE WHEN` / `SKIP WHEN` claire en tête du `SKILL.md` ;
+- aucune exécution multi-skills automatique : l'orchestration passe par `skill-orchestrator` qui demande validation avant de mobiliser plusieurs skills lourds ;
+- la table de routage `docs/skill-routing-map.md` permet de matcher rapidement une intention utilisateur au bon skill.
+
+Objectif : **ne pas payer en tokens pour des skills qui ne servent pas à la tâche.**
 
 ---
 

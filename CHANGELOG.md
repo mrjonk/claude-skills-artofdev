@@ -9,15 +9,42 @@ Versionnage [SemVer](https://semver.org/lang/fr/).
 
 ## [Unreleased]
 
+### Added
+- **Skill `multilingual-site-engine`** (sixième skill, **public-ready**) :
+  - traduction, localisation et cohérence multilingue de sites et applications ;
+  - question obligatoire sur les langues cibles si elles ne sont pas précisées ;
+  - détection de l'architecture i18n existante (i18next, gettext, JSON, PHP arrays, PO/MO, CMS multilingue) ;
+  - préservation des variables, composants dynamiques, placeholders, routes ;
+  - traduction naturelle (anti-littéralisme) + humanisation (anti-style IA, traitement du tiret long excessif) ;
+  - SEO multilingue : title, meta, hreflang, canonical, slugs, sitemap, Open Graph ;
+  - localisation menus, footers, formulaires, erreurs, emails, metadata, alt text ;
+  - formats locaux (dates, devises, nombres) + checklist RTL ;
+  - 4 modes : audit-only, plan, traduction+humanisation, SEO multilingue final ;
+  - 2 scores : Translation Quality Score + Multilingual Site Readiness Score (0-100 chacun).
+- **Skill `skill-orchestrator`** (septième skill, **public-ready**, optimisé tokens) :
+  - analyse l'intention utilisateur et identifie le skill principal le plus spécifique ;
+  - propose les skills secondaires seulement si utiles ;
+  - demande confirmation avant de mobiliser plusieurs gros skills ;
+  - ne crée jamais automatiquement un repo, un ZIP ou une action destructive sans demande explicite ;
+  - s'appuie sur la table de routage `docs/skill-routing-map.md`.
+- `docs/skill-routing-map.md` : table de routage centrale (intention utilisateur → skill principal → skills secondaires possibles → ne pas utiliser quand).
+- Section **"USE WHEN / SKIP WHEN"** ajoutée à chaque SKILL.md (5 skills existants + 2 nouveaux), pour permettre à `skill-orchestrator` de router sans charger tout le contenu.
+- Section **"Token-conscious design"** dans le README : explique le chargement progressif et l'orchestration explicite.
+
+### Changed
+- Roadmap (`docs/roadmap.md` + section `## Roadmap` du README) :
+  - retrait des entrées `mini-cms-builder` (anciennement v0.6), `video-prep` (anciennement v0.7) et `zip-exporter` (anciennement v0.8) ;
+  - ajout de `multilingual-site-engine` en v0.6 ;
+  - ajout de `skill-orchestrator` en v0.7 ;
+  - v1.0 redéfinie comme collection stable de 7 skills.
+- Tableau principal du README : ajout d'une seconde table "Skills planifiés" listant `multilingual-site-engine` et `skill-orchestrator`.
+
 ### À venir
-- Skill `mini-cms-builder`.
-- Skill `video-prep`.
-- Skill `zip-exporter`.
-- Skill `skill-orchestrator` (chaîner les skills selon le contexte).
 - Bannière OG / logo dans le README racine.
 - Captures d'écran de redesigns / audits réels dans `examples/`.
 - Affinement des regex de scan (whitelist élargie pour le repo méta).
-- Table des matières dans les SKILL.md longs (notamment site-ux-guardian, ~720 lignes).
+- Optimisation continue des SKILL.md existants : déplacement progressif des longues checklists vers `references/`.
+- Table des matières dans les SKILL.md longs (notamment site-ux-guardian, ~830 lignes).
 
 ---
 
