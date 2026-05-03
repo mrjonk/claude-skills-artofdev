@@ -9,6 +9,24 @@ Versionnage [SemVer](https://semver.org/lang/fr/).
 
 ## [Unreleased]
 
+### Added
+- **Skill `site-ux-guardian`** (cinquième skill publié, **public-ready**) :
+  - `SKILL.md` complet (frontmatter + 25 sections : rôle, philosophie 15 questions, méthode 11 phases, règles menus/footers/routes/doublons, discipline fichier, cohérence front/admin, multilingue, webdesign guidelines 14 axes, sécurité basique, 3 modes d'exécution, scoring cohérence + visuel sur 100, checklist) ;
+  - 18 fichiers `references/` : `ux-consistency-methodology`, `navigation-audit-guide`, `menu-footer-consistency-guide`, `route-mapping-guide`, `duplicate-detection-guide`, `component-reuse-guide`, `file-editing-discipline`, `frontend-admin-consistency`, `security-sanity-checklist`, `responsive-navigation-checklist`, `webdesign-guidelines`, `visual-hierarchy-guide`, `typography-and-spacing-guide`, `layout-consistency-guide`, `buttons-cards-forms-guide`, `image-and-media-guidelines`, `visual-quality-score`, `final-site-coherence-checklist` ;
+  - 10 templates : `site-map-audit`, `navigation-report`, `menu-footer-report`, `duplicate-report`, `file-change-plan`, `ux-correction-plan`, `webdesign-audit`, `visual-quality-checklist`, `design-system-consistency`, `final-coherence-report` ;
+  - 7 scripts non destructifs : `scan-navigation-patterns`, `scan-footer-patterns`, `scan-duplicate-links`, `scan-orphan-pages`, `scan-hardcoded-navigation`, `scan-visual-consistency-patterns`, `create-site-ux-report` ;
+  - **score cohérence + score visuel** sur 100 chacun ;
+  - délégations explicites vers `premium-webdesigner` (refonte créative) et `production-auditor` (audit production profond) ;
+  - 3 modes d'exécution : Mode 1 (audit-only, défaut), Mode 2 (corrections sûres), Mode 3 (plan de refonte avec validation) ;
+  - **public-ready** : aucune référence privée, signature minimale "Created by João de Almeida".
+- 4 docs publiques : `site-ux-guardian-how-to-use.md`, `site-ux-guardian-examples.md` (10 prompts), `site-ux-guardian-webdesign-guidelines.md`, `article-section-site-ux-guardian.md`.
+- 7 exemples : `example-menu-footer-consistency`, `example-admin-front-consistency`, `example-route-and-link-audit`, `example-duplicate-components-cleanup`, `example-wordpress-like-site-audit`, `example-saas-dashboard-ux-audit`, `example-webdesign-guidelines-audit`.
+- `reports/site-ux-guardian-self-audit.md` : auto-application en mode audit-only.
+
+### Changed
+- `README.md` : nouvelle section pour `site-ux-guardian` (avec note "public-ready"), structure du repo mise à jour, roadmap réordonnée.
+- `install.sh` / `uninstall.sh` : aucune modification — multi-skill auto-détecte.
+
 ### À venir
 - Skill `mini-cms-builder`.
 - Skill `video-prep`.

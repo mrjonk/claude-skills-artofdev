@@ -10,6 +10,7 @@ Skills publiés :
 | [`production-auditor`](skills/production-auditor/) | Auditer un projet avant mise en production : score 7-axes, plan de correction, corrections sûres |
 | [`premium-webdesigner`](skills/premium-webdesigner/) | Empêcher les designs IA basiques : méthode 6-phases (brief → 21st.dev/shadcn → composants → direction artistique → images → exécution alignée stack) |
 | [`seo-content-engine`](skills/seo-content-engine/) | Empêcher les articles IA génériques : méthode éditoriale 13-étapes, anti-bullshit, scoring qualité 0-100, public-ready |
+| [`site-ux-guardian`](skills/site-ux-guardian/) | Empêcher les corrections partielles : audit ergonomique transversal (menus, footers, routes, doublons, front/admin, responsive, sécurité basique, webdesign guidelines 14 axes), score cohérence + score visuel sur 100, public-ready |
 
 Created by **João de Almeida** — Art of Dev
 https://artofdev.space
@@ -238,6 +239,88 @@ Voir [`docs/seo-content-engine-how-to-use.md`](docs/seo-content-engine-how-to-us
 
 ---
 
+## Le skill `site-ux-guardian`
+
+> **Note :** ce skill est **public-ready**. Aucune référence privée, réutilisable tel quel.
+
+### Le problème
+
+Quand on modifie une page, on oublie souvent les autres :
+
+- modification du menu desktop sans toucher au mobile → désynchronisation ;
+- ajout d'une fonctionnalité sur `/admin/users` mais pas sur `/admin/orders` → incohérence ;
+- création de `HeaderV2.tsx` parce que c'était plus rapide que de modifier `Header.tsx` → doublon ;
+- footer qui dit `© 2022` parce qu'il a été oublié pendant 2 ans → statique ;
+- 12 pages avec le menu hardcodé au lieu d'un layout global → chaque modification doit être répétée.
+
+Le site **fonctionne**, mais il est **incohérent**. Et l'incohérence se voit.
+
+### La solution
+
+Le skill **`site-ux-guardian`** force une vision **transversale** du site avant toute modification. Il déroule **11 phases** :
+
+1. identifier la stack ;
+2. cartographier les pages ;
+3. identifier les menus (desktop, mobile, admin, switch langue) ;
+4. identifier les footers ;
+5. vérifier la cohérence globale ;
+6. détecter les doublons (`HeaderV2`, fichiers `.bak`) ;
+7. identifier les **bons fichiers** (layout global vs page locale) ;
+8. vérifier les **webdesign guidelines** (14 axes) ;
+9. vérifier la sécurité basique ;
+10. vérifier le responsive ;
+11. produire un rapport.
+
+À la fin : **score cohérence + score visuel sur 100**.
+
+### Ce que le skill produit
+
+- carte du site (pages, routes, liens) ;
+- liste des doublons et plan de consolidation ;
+- liste des fichiers à corriger (avec chemins exacts) ;
+- audit webdesign sur **14 axes** (hiérarchie, lisibilité, typo, spacing, layout, boutons, cards, formulaires, tables, images, responsive, cohérence, accessibilité, anti-template) ;
+- audit sécurité basique (signalement uniquement) ;
+- score cohérence + score visuel ;
+- plan d'action en phases ;
+- **délégations explicites** vers `premium-webdesigner` (refonte créative) ou `production-auditor` (audit production complet) si applicables.
+
+### Différence avec les autres skills
+
+| | `site-ux-guardian` | `premium-webdesigner` | `production-auditor` |
+|---|---|---|---|
+| Périmètre | cohérence ergonomique + visuelle | direction artistique + refonte | audit production complet |
+| Sécurité | signalement basique | non | profonde (CSRF, XSS, SQLi, billing) |
+| Refonte créative | **non** (délègue) | **oui** | non |
+| Score | cohérence + visuel | UI quality | 7 axes pondérés |
+
+### Mode d'exécution
+
+- **Mode 1** — audit only (par défaut, lecture seule) ;
+- **Mode 2** — audit + corrections sûres (typos, alt vides, balises manquantes) ;
+- **Mode 3** — plan de refonte ergonomique (validation requise par l'utilisateur).
+
+### Ce que le skill ne fait jamais sans accord explicite
+
+- déplacer toute l'architecture ;
+- supprimer des pages ;
+- remplacer un système de navigation entier ;
+- modifier la sécurité admin ;
+- casser des routes existantes ;
+- remplacer des données dynamiques par du hardcodé ;
+- créer des doublons (`HeaderV2`, `NewFooter`) ;
+- faire une refonte créative complète ;
+- pousser vers GitHub.
+
+### Installation modulaire
+
+```bash
+bash install.sh site-ux-guardian
+```
+
+Voir [`docs/site-ux-guardian-how-to-use.md`](docs/site-ux-guardian-how-to-use.md), [`docs/site-ux-guardian-examples.md`](docs/site-ux-guardian-examples.md), [`docs/site-ux-guardian-webdesign-guidelines.md`](docs/site-ux-guardian-webdesign-guidelines.md), et [`docs/article-section-site-ux-guardian.md`](docs/article-section-site-ux-guardian.md).
+
+---
+
 ## Structure du repo
 
 ```txt
@@ -395,9 +478,10 @@ Voir [`docs/security-rules.md`](docs/security-rules.md) pour le détail.
 - **v0.2** — `production-auditor` : audit 10-phases, scoring 7-axes (livré).
 - **v0.3** — `premium-webdesigner` : design 6-phases, 21st.dev/shadcn workflow, anti-basic rules, scoring UI quality (livré).
 - **v0.4** — `seo-content-engine` : rédaction SEO 13-étapes, anti-bullshit, scoring qualité, public-ready (livré).
-- **v0.5** — `mini-cms-builder` : générateur de mini CMS sectoriels PHP/SQLite.
-- **v0.6** — `video-prep` : préparation d'un repo en mode screen-recording propre.
-- **v0.7** — `zip-exporter` : empaquetage en ZIP livrable client.
+- **v0.5** — `site-ux-guardian` : gardien de cohérence ergonomique transversale, score cohérence + score visuel, public-ready (livré).
+- **v0.6** — `mini-cms-builder` : générateur de mini CMS sectoriels PHP/SQLite.
+- **v0.7** — `video-prep` : préparation d'un repo en mode screen-recording propre.
+- **v0.8** — `zip-exporter` : empaquetage en ZIP livrable client.
 - **v1.0** — collection stable, publiée avec article + vidéo de présentation.
 
 Voir [`docs/roadmap.md`](docs/roadmap.md).
