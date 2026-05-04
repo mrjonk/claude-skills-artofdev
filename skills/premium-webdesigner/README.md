@@ -14,7 +14,7 @@ Created by **João de Almeida** — Art of Dev — https://artofdev.space
 Quand tu demandes *"fais-moi un design moderne"*, Claude ne saute pas direct au code. Il :
 
 1. **comprend** le projet (cible, action principale, émotion, stack, contraintes) ;
-2. **cherche** des inspirations sur 21st.dev, shadcn/ui, Lucide, Motion, Unsplash, Pixabay ;
+2. **cherche** des inspirations sur 21st.dev, shadcn/ui, Lucide, Motion, Unsplash, Pixabay — et, selon la stack et le type de projet, dans une **bibliothèque élargie** (Magic UI, Aceternity, Origin UI, HyperUI, Preline, Codrops, Landingfolio, Awwwards, Mobbin, LottieFiles, Spline, Fontshare…) catalogue complet dans [`references/inspiration-sources.md`](references/inspiration-sources.md) et routage par type de projet dans [`references/research-matrix.md`](references/research-matrix.md) ;
 3. **choisit** des composants pertinents (hero, pricing, cards, dashboard, footer, etc.) ;
 4. **définit** une direction artistique (palette, typo, spacing, radius, shadows, animations) ;
 5. **source** des images cohérentes (avec licence et crédit) ;
@@ -71,6 +71,8 @@ Cf. [`references/21st-dev-workflow.md`](references/21st-dev-workflow.md). Résum
 5. Si **l'accès web n'est pas dispo**, Claude le dit et propose une **shortlist** (3–5 composants nommés) à consulter manuellement.
 
 **Ce que Claude ne fait jamais :** copier un composant aveuglément, inventer un composant qui n'existe pas, prétendre l'avoir importé sans le faire, mélanger une mosaïque de composants incohérents.
+
+**Bibliothèque élargie — règle d'or :** Claude peut désormais piocher dans une liste élargie de sources (Magic UI, Aceternity, HyperUI, Preline, Codrops, Landingfolio, Awwwards, Mobbin, LottieFiles, Spline, Fontshare…), mais il **doit toujours** : adapter à la stack existante (pas de React imposé sur PHP), ne jamais copier en bloc, éviter le patchwork visuel, respecter le niveau de "wow" autorisé pour le type de projet (cf. `references/research-matrix.md`), et documenter chaque emprunt dans le moodboard.
 
 ---
 
@@ -230,9 +232,10 @@ L'ancienne version est sauvegardée automatiquement dans `~/.claude/skills/.back
 skills/premium-webdesigner/
 ├── SKILL.md
 ├── README.md
-├── references/                              (10 fichiers)
+├── references/                              (11 fichiers)
 │   ├── design-methodology.md
 │   ├── inspiration-sources.md
+│   ├── research-matrix.md
 │   ├── component-selection-guide.md
 │   ├── 21st-dev-workflow.md
 │   ├── image-sourcing-guide.md

@@ -95,6 +95,108 @@ Created by João de Almeida — Art of Dev — https://artofdev.space
 
 ---
 
+## Bibliothèques étendues (à utiliser selon stack et besoin)
+
+> Ces sources **élargissent** le radar du skill au-delà des 6 sources principales. Elles ne **remplacent** pas la méthode : on documente toujours le pattern emprunté + l'adaptation faite (cf. `templates/moodboard-report.template.md`).
+>
+> Avant de piocher : **vérifier la stack** (React/Tailwind/HTML pur/PHP/WP) et **éviter le patchwork** (mélanger Aceternity + Flowbite + Codrops dans la même page = chaos visuel).
+
+### A. Composants React / Tailwind premium
+
+Bibliothèques de composants riches, souvent stylés et animés. **Stack requise : React + Tailwind** (sauf Animate UI / Magic UI qui peuvent être adaptés).
+
+| Source | URL | Usage |
+|---|---|---|
+| Magic UI | https://magicui.design/ | composants animés haut de gamme (hero animé, marquee, beam, particles) — usage parcimonieux |
+| Aceternity UI | https://ui.aceternity.com/ | effets "wow" React/Tailwind (3D cards, spotlight, background gradients) — réserver aux landings premium |
+| Motion Primitives | https://motion-primitives.com/ | primitives d'animation Framer Motion (text effects, transitions) — base réutilisable |
+| Origin UI | https://originui.com/ | composants React/Tailwind soignés, alternative à shadcn |
+| Blocks.so | https://blocks.so/ | sections complètes (hero, pricing, footer) prêtes à coller |
+| Animate UI | https://animate-ui.com/ | composants avec animations modernes, design clean |
+
+### B. Tailwind / HTML / CSS — copy-paste
+
+Composants utilisables sans React. Adaptés aux **mini CMS PHP**, **WordPress**, **HTML/CSS classique**, **sites vitrine**.
+
+| Source | URL | Usage |
+|---|---|---|
+| HyperUI | https://www.hyperui.dev/ | composants Tailwind purs (HTML), parfaits pour PHP/WP/HTML |
+| Preline UI | https://preline.co/ | catalogue large Tailwind + JS vanille |
+| Flowbite | https://flowbite.com/ | composants Tailwind + JS, riches mais à doser (look "framework") |
+| daisyUI | https://daisyui.com/ | plugin Tailwind avec composants nommés (`btn`, `card`) — gain de temps |
+| Meraki UI | https://merakiui.com/ | composants Tailwind clean, légers |
+| Mamba UI | https://mambaui.com/ | sections complètes Tailwind (hero, pricing) |
+| Float UI | https://floatui.com/ | composants Tailwind orientés SaaS |
+| TailGrids | https://tailgrids.com/ | UI kit Tailwind, sections SaaS / corporate |
+| TailwindFlex | https://tailwindflex.com/ | exemples copy-paste variés (filtrer par qualité) |
+
+### C. Effets CSS / JS / animations créatives
+
+Sources d'**inspiration** pour micro-interactions, hover, transitions, expérimentations. **Ne pas copier en bloc** — extraire l'idée, l'adapter à la sobriété du projet.
+
+| Source | URL | Usage |
+|---|---|---|
+| Codrops | https://tympanus.net/codrops/ | démos avancées (transitions, WebGL, scroll effects) — à doser |
+| Uiverse | https://uiverse.io/ | boutons, cards, loaders CSS — banque d'idées |
+| FreeFrontend | https://freefrontend.com/ | catalogue d'effets CSS/JS classés par type |
+| CodePen | https://codepen.io/ | recherches précises (`hero`, `card hover`, `loader`) |
+| Animista | https://animista.net/ | générateur d'animations CSS prêtes à exporter |
+| Hover.css | https://ianlunn.github.io/Hover/ | bibliothèque d'effets hover CSS purs |
+| CSS Buttons | https://cssbuttons.app/ | collection de boutons CSS (filtrer la sobriété) |
+
+**Règle :** un seul motif d'animation marquée par page. Toujours `prefers-reduced-motion`.
+
+### D. Inspiration landing / SaaS / portfolio
+
+Galleries de sites complets pour benchmarker des **patterns** sectoriels (pas pour copier).
+
+| Source | URL | Usage |
+|---|---|---|
+| Landingfolio | https://www.landingfolio.com/ | landing pages SaaS classées par catégorie |
+| One Page Love | https://onepagelove.com/ | sites one-page (portfolio, événement, produit) |
+| Godly | https://godly.website/ | sites web "divinement" stylés — bon pour DA artistique |
+| SaaS Websites | https://www.saaswebsites.com/ | benchmark SaaS récents |
+| Refero | https://refero.design/ | UI patterns sectoriels (auth, onboarding, settings) |
+| Pageflows | https://pageflows.com/ | flows complets (onboarding, checkout) en vidéo |
+
+### E. Assets, typographies, backgrounds, 3D et animations
+
+Ressources visuelles à intégrer (avec respect des licences).
+
+| Source | URL | Usage |
+|---|---|---|
+| LottieFiles | https://lottiefiles.com/ | animations Lottie légères (icônes animées, hero subtil) |
+| Spline | https://spline.design/ | scènes 3D embarquables — à réserver aux pages premium |
+| Rive | https://rive.app/ | animations vectorielles interactives, plus légères que Lottie |
+| Haikei | https://haikei.app/ | générateur de backgrounds SVG (vagues, blobs, gradients) |
+| SVG Backgrounds | https://www.svgbackgrounds.com/ | patterns SVG configurables |
+| Hero Patterns | https://heropatterns.com/ | patterns SVG répétables (subtilité maximale) |
+| BGJar | https://bgjar.com/ | générateur de backgrounds SVG variés |
+| Fontshare | https://www.fontshare.com/ | typographies premium gratuites (alternative qualitative à Google Fonts) |
+| Google Fonts | https://fonts.google.com/ | typographies libres, large choix |
+| Fontpair | https://fontpair.co/ | suggestions de pairings typographiques |
+
+**Règles :**
+- Spline / Rive / Lottie : **un seul** asset animé par page critique (hero), pas un parcours d'effets ;
+- backgrounds SVG : utilisés comme **discrète texture**, pas comme remplissage ;
+- typographies : **2 familles max** (display + body) ;
+- toujours mesurer l'impact perf (poids, layout shift).
+
+### F. Benchmarks sectoriels
+
+Galleries pour benchmarker la concurrence et les standards sectoriels (à compléter avec les "Sites de référence sectoriels" ci-dessous et les "Inspirations galleries").
+
+| Source | URL | Usage |
+|---|---|---|
+| Awwwards | https://www.awwwards.com/ | sites primés — DA artistique / agence / produit premium |
+| SiteInspire | https://siteinspire.com/ | curation par catégorie / style / type |
+| Land-book | https://land-book.com/ | landing pages classées |
+| Lapa Ninja | https://lapa.ninja/ | landing pages SaaS / startup |
+| Mobbin | https://mobbin.com/ | UI mobile / web SaaS, flows complets |
+| Dribbble | https://www.dribbble.com/ | concepts (souvent non-implémentés — extraire l'idée) |
+
+---
+
 ## Sources secondaires (à utiliser ponctuellement)
 
 ### Sites de référence sectoriels
@@ -116,12 +218,7 @@ Pour un **secteur** donné, identifier 2–3 sites de référence premium :
 
 ### Inspirations galleries
 
-- https://www.awwwards.com/
-- https://siteinspire.com/
-- https://lapa.ninja/
-- https://land-book.com/
-- https://www.dribbble.com/ (filtrer "Web Design", "Landing Page")
-- https://mobbin.com/ (UI mobile / web SaaS)
+Voir **section F. Benchmarks sectoriels** ci-dessus (Awwwards, SiteInspire, Land-book, Lapa Ninja, Mobbin, Dribbble).
 
 **Règle :** consulter pour **logique** et **patterns**, pas pour copier pixel-perfect. Ces sites montrent souvent du **portfolio** (design idéal, pas optimisé conversion).
 
